@@ -145,21 +145,7 @@ class SettingsController < ApplicationController
   end
   
   def fetch_tw_friends
-    if current_user.provider != nil and current_user.provider == 'twitter'
-      Twitter.configure do |config|
-        config.consumer_key = (Rails.env=="development" ? TW_APP_ID : TW_APP_ID_P)
-        config.consumer_secret =  (Rails.env=="development" ? TW_SEC_ID : TW_SEC_ID_P)
-        config.oauth_token = current_user.token
-        config.oauth_token_secret = current_user.auth_secret
-      end
-    else
-      Twitter.configure do |config|
-        config.consumer_key = (Rails.env=="development" ? TW_APP_ID : TW_APP_ID_P)
-        config.consumer_secret =  (Rails.env=="development" ? TW_SEC_ID : TW_SEC_ID_P)
-        config.oauth_token = current_user.social_connections.where("provider = 'twitter'").first.token
-        config.oauth_token_secret = current_user.social_connections.where("provider = 'twitter'").first.auth_secret
-      end
-    end
+    PostToTwitter.twitter_configuration(current_user)
     client = Twitter::Client.new
     @twi_friends = client.friends.all
   end

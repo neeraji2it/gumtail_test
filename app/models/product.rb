@@ -144,7 +144,7 @@ class Product < ActiveRecord::Base
   def self.top_products(limit,category)
     top = []
     @category = ProductCategory.find_by_category(category)
-    Product.find(:all,:limit =>limit,:conditions => "#{@category ? "category_id = #{@category.id}" : ''}").each do |product|
+    Product.include(:store).where("#{@category ? "category_id = #{@category.id}" : ''}").limit(limit).each do |product|
       #Product.all.each do |product|
       sales = product.orders.count
       views = (product.views == nil ? 0 : product.views.to_i)

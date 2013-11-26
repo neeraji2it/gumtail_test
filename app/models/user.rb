@@ -56,8 +56,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,:confirmed_at,:confirmation_sent_at,:confirmation_token,
-                  :username,:first_name,:last_name,:bio,:location,:picture,:gender,:provider,:provider_id,:token,:status,:current_password,
-                  :website,:auth_secret,:timezone,:verified,:account_activation_code,:country,:localization
+    :username,:first_name,:last_name,:bio,:location,:picture,:gender,:provider,:provider_id,:token,:status,:current_password,
+    :website,:auth_secret,:timezone,:verified,:account_activation_code,:country,:localization
   attr_accessor :status,:current_password,:time_zone
   validates :username,:first_name,:last_name,:presence => true
   validates :gender,:presence => true,:if => Proc.new{|f| f.status == 'update' }
@@ -139,29 +139,38 @@ class User < ActiveRecord::Base
 
   def notifications(user)
     notifications = []
+    recommend(user)
+    subscribe(user)
+    order_transactions(user)
+    return notifications
+  end
+  
+  def recommend(user)
     recommendations = Recommendation.where("product_id IN (#{(user.store != nil and !user.store.products.empty?) ? user.store.products.map{|p| p.id}.split(",").join(",") : '0'})")
     for recommendation in recommendations
       message = recommendation.user.full_name+" recommended your product "+recommendation.product.product_title+" on "+recommendation.created_at.strftime("%b %d %Y")
       notifications << [recommendation.user_id,recommendation.product_id,message]
     end
-    
+  end
+  
+  def subscribe(user)
     subscribers = Relationship.where("publisher_id = #{user.id}")
     for subscriber in subscribers
       message = User.find(subscriber.subscriber_id).full_name+" subscribed  to you on "+subscriber.created_at.strftime("%b %d %Y")
       notifications << [subscriber.subscriber_id,nil,message]
     end
-        
+  end
+  
+  def order_transactions(user)
     orders = Transaction.where("product_id IN (#{(user.store != nil and !user.store.products.empty?) ? user.store.products.map{|p| p.id}.split(",").join(",") : '0'})")
     for order in orders
       message = order.user.full_name+" ordered your product "+order.product.product_title+" on "+order.created_at.strftime("%b %d %Y")
       notifications << [order.user_id,order.product_id,message]
     end
-    
-    return notifications
   end
 
   def update_uncleared_balance(amount)
-      add_to_unclered_balance(amount)
+    add_to_unclered_balance(amount)
   end
 
   def update_user_card_details_id(id)
@@ -194,7 +203,7 @@ class User < ActiveRecord::Base
     orders.canceled_orders.size
   end
   
-protected
+  protected
   def confirmation_required?
     false
   end

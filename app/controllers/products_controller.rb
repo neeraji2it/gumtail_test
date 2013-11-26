@@ -41,14 +41,14 @@ class ProductsController < ApplicationController
 
   #show page /products/:number
   def show
-      ########################Inform user that has previously bought this product################
-      @bought = @product.has_been_bought(@product.id, current_user.id) if current_user
-      ###########################################################################################
-      @files = FileHandler.where("product_id =?", @product.id)
-      #@recommend = current_user ? Recommendation.find_by_user_id_and_product_id(current_user.id,@product.id) : ''
-      @order = Order.new
-      session['r_id'] = params[:r] || 'null'
-      render :layout => "custom"
+    ########################Inform user that has previously bought this product################
+    @bought = @product.has_been_bought(@product.id, current_user.id) if current_user
+    ###########################################################################################
+    @files = FileHandler.where("product_id =?", @product.id)
+    #@recommend = current_user ? Recommendation.find_by_user_id_and_product_id(current_user.id,@product.id) : ''
+    @order = Order.new
+    session['r_id'] = params[:r] || 'null'
+    render :layout => "custom"
   end
 
   #edit page /products/:number/edit
@@ -76,11 +76,11 @@ class ProductsController < ApplicationController
   def recommend
     @product = Product.find(params[:id])
     # "You already recommended this product."
-      @recommendation = Recommendation.create(user_id: current_user.id, product_id: @product.id, current_user_id: current_user.id,product_user_id: @product.store.user_id)
-      track_activity @recommendation
-      respond_to do |format|
-        format.js 
-      end
+    @recommendation = Recommendation.create(user_id: current_user.id, product_id: @product.id, current_user_id: current_user.id,product_user_id: @product.store.user_id)
+    track_activity @recommendation
+    respond_to do |format|
+      format.js 
+    end
 
   end
 
@@ -93,21 +93,16 @@ class ProductsController < ApplicationController
   #download digital product who bought /product/:product_no/download_product
   def download_product
     @product = Product.find_by_random_no(params[:random_no])
-    if @product.product_type == 'digital'
-      if !@product.documents.blank?
-        @product.documents.each do |d|
-          document = d.document_url.split('/').last
-          open(document, 'wb') do |file|
-            file << open(root_url+d.document.to_s).read
-            send_file file, :type=>"application/zip"
-          end
+    if @product.product_type == 'digital' and !@product.documents.blank?
+      @product.documents.each do |d|
+        document = d.document_url.split('/').last
+        open(document, 'wb') do |file|
+          file << open(root_url+d.document.to_s).read
+          send_file file, :type=>"application/zip"
         end
-      else
-        redirect_to root_path
       end
-    else
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   def not_your_product

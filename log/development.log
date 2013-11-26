@@ -17597,3 +17597,119 @@ Started GET "/assets/jquery.remotipart.js?body=1" for 127.0.0.1 at 2013-11-26 10
 Served asset /jquery.remotipart.js - 304 Not Modified (3ms)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (35.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mProductCategory Load (1.2ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Add-Ons' AND "product_categories"."category_type" = 'digital' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (262.6ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Add-Ons"], ["category_type", "digital"], ["created_at", Tue, 26 Nov 2013 09:14:07 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:07 UTC +00:00]]
+  [1m[36m (96.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (60.5ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Arts' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Arts"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:07 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:07 UTC +00:00]]
+  [1m[36m (33.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.5ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Books' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Books"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:07 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:07 UTC +00:00]]
+  [1m[36m (29.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.5ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Comics' AND "product_categories"."category_type" = 'digital' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Comics"], ["category_type", "digital"], ["created_at", Tue, 26 Nov 2013 09:14:07 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:07 UTC +00:00]]
+  [1m[36m (38.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.5ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Diy & Craft' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Diy & Craft"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (38.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.5ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'E-books' AND "product_categories"."category_type" = 'digital' LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "E-books"], ["category_type", "digital"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (28.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.5ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Food' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Food"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (46.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.6ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Gadgets' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Gadgets"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (38.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.6ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Graphics' AND "product_categories"."category_type" = 'digital' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Graphics"], ["category_type", "digital"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (37.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.5ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Home' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Home"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (38.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.6ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Kids' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Kids"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (27.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.6ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Media' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Media"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (37.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.6ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Men' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Men"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (46.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.6ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Music' AND "product_categories"."category_type" = 'digital' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (28.5ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Music"], ["category_type", "digital"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (26.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.7ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Music' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Music"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (37.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.7ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Pet' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Pet"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (37.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.7ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Software' AND "product_categories"."category_type" = 'digital' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Software"], ["category_type", "digital"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (37.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.6ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Software' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Software"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (28.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.8ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Sports & Outdoors' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Sports & Outdoors"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (36.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.8ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Templates' AND "product_categories"."category_type" = 'digital' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Templates"], ["category_type", "digital"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (36.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.9ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Themes' AND "product_categories"."category_type" = 'digital' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Themes"], ["category_type", "digital"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (36.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.8ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Travel' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Travel"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (69.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.8ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Vehicles' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Vehicles"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (44.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.7ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Video' AND "product_categories"."category_type" = 'digital' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Video"], ["category_type", "digital"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (94.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.8ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Women' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Women"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:08 UTC +00:00]]
+  [1m[36m (36.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.9ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Workspace' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Workspace"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:09 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:09 UTC +00:00]]
+  [1m[36m (36.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.7ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Other' AND "product_categories"."category_type" = 'digital' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Other"], ["category_type", "digital"], ["created_at", Tue, 26 Nov 2013 09:14:09 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:09 UTC +00:00]]
+  [1m[36m (53.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mProductCategory Load (0.8ms)[0m  SELECT "product_categories".* FROM "product_categories" WHERE "product_categories"."category" = 'Other' AND "product_categories"."category_type" = 'physical' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "product_categories" ("amount", "category", "category_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["amount", nil], ["category", "Other"], ["category_type", "physical"], ["created_at", Tue, 26 Nov 2013 09:14:09 UTC +00:00], ["updated_at", Tue, 26 Nov 2013 09:14:09 UTC +00:00]]
+  [1m[36m (53.2ms)[0m  [1mCOMMIT[0m
