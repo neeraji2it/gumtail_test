@@ -1,0 +1,6 @@
+<% if @request.new_record? %>
+  $("#requestDrop").prepend('<p style="color:red;"><%= j @request.errors.full_messages.join(', ').html_safe %></p>');
+  //dislay pop up to send report here
+<% else %>
+	$("#requestDrop").html('<h4>Your request has been sent.</h4>');
+<% end %>

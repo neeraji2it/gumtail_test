@@ -1,0 +1,26 @@
+# MySQL.  Versions 4.1 and 5.0 are recommended.
+#
+#
+# Be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: aries_development
+  pool: 5
+  username: tomiwaadewumi
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: aries_test
+  pool: 5
+  username: tomiwaadewumi
+  host: localhost
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: aries_production
+  pool: 5
+  username: aries
+  password:

@@ -1,0 +1,35 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380280.947759:@value"°[I"¢(function() {
+  var _ref, _ref1,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Aries.Models.Tags = (function(_super) {
+    __extends(Tags, _super);
+
+    function Tags() {
+      _ref = Tags.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    return Tags;
+
+  })(Backbone.Model);
+
+  Aries.Collections.Tags = (function(_super) {
+    __extends(Tags, _super);
+
+    function Tags() {
+      _ref1 = Tags.__super__.constructor.apply(this, arguments);
+      return _ref1;
+    }
+
+    Tags.prototype.model = Aries.Models.Tags;
+
+    Tags.prototype.url = "/discover/tags";
+
+    return Tags;
+
+  })(Backbone.Collection);
+
+}).call(this);
+:ET

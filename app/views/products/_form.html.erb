@@ -1,0 +1,5 @@
+<%= render partial: "product_details", locals: {f: f, product_flag: product_flag } %>
+<%= render partial: "more_options", locals: {f: f, action: action } %>
+<%= render partial: "receipt", locals: {f: f} %>
+<%= f.submit "#{submit_text}" %>
+

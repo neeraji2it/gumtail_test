@@ -1,0 +1,27 @@
+<div> 
+  <span><img src="<%= product.cover('thumb') %>" /></span>
+  <span><%= product.product_title %></span>
+  <span><%= product.amount %></span>
+  <%# :url => ROOT_URL + orders_path(@order) put when its a custom domain%>
+  <%= form_for @order, remote: true do |f| %> 
+
+    <%= f.hidden_field :product_id, value: product.id %>
+    <%= f.hidden_field :full_name, value: current_user.full_name %>
+    <%= f.hidden_field :email, value: current_user.email %>
+    <%= f.hidden_field :referrer_id, value: session['r_id'] %>
+    <%= f.hidden_field :referred_from, value: session['referer'] %>
+    <!-- Make user to enter pin for extra security !-->
+    <%= render 'orders/extra_info', f: f, product: product %>
+
+    <% if product.product_type == "physical" %>
+      <%= render 'orders/address', f: f %>
+    <% end %>
+
+    <div id="stripe_error">
+      <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+    </div>
+    <div class="actions">
+      <%= f.submit "Pay" %>
+    </div>
+  <% end %>
+</div>

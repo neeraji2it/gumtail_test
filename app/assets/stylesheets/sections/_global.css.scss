@@ -1,0 +1,68 @@
+// Body
+// -------------------------
+body {
+	font-size: $base-font-size;
+	font-family: $base-font-family;
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+	color: $base-text-color;
+	background-color: $base-background-color;
+	text-rendering: optimizeLegibility;
+	width: 100%;
+	font-weight: $regular;
+	
+	a {
+		color: $linkColor;
+	}
+}
+
+// Page header
+// -------------------------
+
+.page-header {
+  padding-bottom: ($base-line-height / 2) - 1;
+  margin: $base-line-height 0 ($base-line-height * 1.5);
+  border-bottom: 1px solid $grayLighter;
+}
+#wrapper {
+	z-index: 5;
+	position: relative;
+	height: 100%;
+}
+
+
+
+#content {
+	padding: 0px 30px 0px 30px;
+	min-height: 100%;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+.text-right {
+	text-align: right;
+}
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.a-common {
+	text-decoration: none;
+}
+.none {
+	display: none;
+}
+.mini-rule {
+	margin: 10px 0;
+	//background: #000;
+	opacity: .075;
+	border: 1px solid #000;
+}

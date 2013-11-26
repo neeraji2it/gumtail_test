@@ -1,0 +1,63 @@
+// Dashboard
+// --------------------------------------------------    
+table.referral-table {
+  border-collapse: collapse;
+  border-color: #EEEEEE;
+  border-width: 1px;
+  width: 100%;
+}
+table.referral-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table.referral-table tr, table.referral-table th, table.referral-table td {
+  border: 0 none;
+  font-size: 100%;
+  font-weight: normal;
+  margin: 0;
+  outline: 0 none;
+  padding: 0;
+  vertical-align: baseline;
+}
+table.referral-table tr.table-header td{
+  font-weight:bold;
+}
+
+table.referral-table tr{
+  border-bottom: 3px solid grey;
+}
+ul.notifications li{
+  list-style-type:none;
+}
+
+// User registration
+// --------------------------------------------------    
+.confirm_account {
+          border-radius: 0.294118em 0.294118em 0.294118em 0.294118em;
+          line-height: normal;
+          padding: 0.882353em 1.17647em;
+          position: relative;
+          background-color: #0088CC;
+          border: 0.0714286em solid #808080;
+          display: inline-block;
+          font-weight: normal;
+          color:white;
+        }
+
+.confirm_account a{
+          color:black;
+        }
+
+
+
+// Application layout
+// -------------------------------------------------- 
+
+
+  #registration,#login_form{
+    display:none;
+    left: 0;
+    margin: 0 auto;
+    position: relative;
+    width: 617px;
+  }

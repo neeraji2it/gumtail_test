@@ -1,0 +1,10 @@
+<div class="row">
+	<div class="large-12 small-12 columns">	
+		<h4> Your product has been listed </h4>
+		<p><%= link_to "Product page", product_url(:subdomain =>@product.store.store_name,:number => @product.random_no) %><p>
+		<p><%= link_to "Edit", edit_product_path(:number => @product.random_no) %><p>
+		<p> Product link (<%= product_url(:subdomain =>@product.store.store_name,:number => @product.random_no) %>)</p>
+		<p> Product shortened link (<%= 'gumt.it/'+@product.random_no %>) </p>
+		<p> Share diaglog here </p>
+	</div>
+</div>

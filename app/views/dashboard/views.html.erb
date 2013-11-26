@@ -1,0 +1,72 @@
+<% vc = params[:vc] %>
+<div class="row">
+  <%= render :partial => "side_tabs" %>
+  <div class="large-9 small-12 columns">
+    <% if vc == "products" %>
+      <% if @products.present? %>
+        <%= content_tag :div, "", id: "traffic_chart", data: {views: Traffic.chart_data(current_user.id, vc) } %>
+        <br><br>
+        <table>
+          <thead>
+            <tr>
+              <td>Product Name</td>
+              <td>Views</td>
+              <td>Unique Views</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% for product in @products %>
+              <tr>
+                <td><%= product.product_title %></td>
+                 <td><%= product.traffic_count %></td>
+                <td><%= product.unique_traffic_count %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <br><br>
+      <% else %>
+        <h2 style="margin: 150px; text-align: center;"> No one has viewed your products yet.</h2>
+      <% end %>
+    <% elsif vc == "store" %>
+      <% if @store.present? %>
+        <%= content_tag :div, "", id: "traffic_chart", data: {views: Traffic.chart_data(current_user.store.id, vc) } %>
+        <br><br>
+        <div class="balance-stats">
+          <ul>
+            <li> <%= @store.traffic_count %>  <small> Total views </small></li>
+            <li> <%= @store.unique_traffic_count %>  <small>Unique views</small></li>
+            <li> <%= @store.total_conversions %> <small>Total coversions</small> </li>
+            <li> <%= conversion(@store.traffic_count, @store.total_sales) %> <small>Conversion rate</small> </li>
+          </ul>
+        </div>
+        <p> Conversion rate is abnormally large because of the high number of view to sale ratio. </p>
+        <table>
+        <thead>
+          <tr>
+            <td>Referrer</td>
+            <td>Views</td>
+            <td>Sales</td>
+            <td>Conversion</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% for referrer in @referrers %>
+            <% uq_ref_count = referrer.count_by_referrer.to_a[0][1] %>
+            <% ref_sales = referrer.total_sales_by_referrer %>
+            <tr>
+              <!-- Pass to helper to print out various cases  !-->
+              <td><%= (referrer.referrer.blank?) ? 'Organic' : referrer.referrer %></td>
+              <td> <%= uq_ref_count %></td>
+              <td> <%= price(ref_sales) %></td>
+              <td><%= conversion(uq_ref_count, ref_sales) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <% else %>
+      <h2 style="margin: 150px; text-align: center;"> No one has viewed your store yet.</h2>
+      <% end %>
+    <% end %>
+  </div>

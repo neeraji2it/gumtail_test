@@ -1,0 +1,11 @@
+<li>
+  <%= f.text_field :code, placeholder: "Your offer code", style: "margin-top: 5px;" %>
+  <span class="input-prepend">
+  	  <span class="add-on"> -$ </span>
+	  <%= f.text_field :amount_off, placeholder: "1" %>
+	  <span class="add-on"> # </span>
+	  <%= f.text_field :quantity, placeholder: "∞" %>
+  </span>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "&#10006".html_safe, '#', class: "remove_offers" %>
+</li>

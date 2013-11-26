@@ -1,0 +1,47 @@
+<p>- - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - -</p>
+<p>The order placed by <%= order.full_name %> has been confirmed.</p>
+<p>This e-mail includes all steps required for dispatching your order.</p>
+<p> Order no: <%= order.order_no %> </p>
+<p> Buyer's email: <%= order.email %> </p>
+<p> Please dispatch this product using the <%= shipping.option %> option. </p>
+<p>Item: <%= product.product_title  %> </p>
+<p>Quantity: <%= order.quantity %></p>
+<p>Order date: <%= order.created_at.strftime("%d %b. %Y") %></p>
+<p>Paid: <%= order.amount_paid %></p>
+<p>Transaction fees: -£2.61 <% "do transaction fees" %></p>
+<p>Shipping: <%= shipping.option %> <p>
+<p>Should be delivered in: <%= shipping.time %> <p> Days.
+<p>Your earnings: <%= order.order_total %></p>
+<p>You have agreed to dispatch an item within <%= shipping.time %> business days after the order date on <%= order.created_at.strftime("%d %b. %Y") %>. Keep in mind that you are responsible for the item until it reaches the buyer. </p>
+
+<p>- - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - -</p>
+<p>DISPATCH INFORMATION FOR THIS ORDER</p>
+
+You can see the order details by <%= link_to "Clicking here", ROOT_URL + order_url(order) %>
+After you dispatch the order, please make sure that you confirm the dispatch of the order to us. The buyer will then be charged, the payment will be recorded in your Balance, and the buyer will be notified by us that the order has been dispatched. See instructions below.
+
+<p>- - - - - - - - - - - - - - - - - - -</p>
+
+<p>AFTER YOU DISPATCH THE ORDER, CONFIRM THE DISPATCH</p>
+
+<p>You can confirm dispatches easily in your Dashboard:</p>
+
+<p>1. In your Dashboard, under the "Orders" tab click on the order you want to confirm.</p>
+
+<p>3. Enter the Shipping Service (such as Ground) and the Tracking ID, if any (supplied by the carrier).</p>
+
+<p>4. Click the "Confirm shipment" button.</p>
+
+<p>- - - - - - - - - - - - - - - - - - -</p>
+
+<p>ABOUT YOUR PAYMENT</p>
+
+<p>This transaction will be recorded in your <b> uncleared balance</b>, after you confirm dispatch of the order to us. </p>
+<p>The payment will be automatically added to your <b> Available balance</b> on a rolling 14-day cycle, subject to our terms Agreement.</p> 
+<p>After funds are available, you can withdraw it at anytime you like, it can take 6 to 10 business days for your bank to make the funds available in your bank account.</p>
+<p>Please make sure that your Bank Account information is always up to date so there are no delays in disbursements to your account.<p>
+<p> To do so:</p>
+
+<p>1. Go to Your Dashboard and click the Payment tab.</p>
+
+<p>2. Click the Add or Edit button to update your bank account information.</p>

@@ -1,0 +1,46 @@
+<div class="slide" id="slide-0">
+	<div class="productFilesIds">
+	</div>
+	<div class="details_tab newFormContainer clearfix">
+
+		<div class="other-details">
+			<%= f.hidden_field :product_type, value:product_flag %>
+			<p class="title-nd-cat">
+				<%= f.text_field :product_title,:placeholder => "Product Title" %>
+				<%= collection_select :product, :category_id, @categories, :id, :category,{:prompt => 'Please select a category'}%>
+			</p>
+			<p class="description">
+				<%= f.text_area :description,:placeholder => "Describe what you're selling, try to answer the questions buyers will have." %>
+			</p>
+
+			<p class="quantity">
+				<span class=" input-prepend">	
+					<span class="add-on"> # </span>
+					<%= f.text_field :quantity, placeholder: "Quantity" %>	
+				</span>
+				<%= f.check_box :unlimited %> <label class="unlimited">Unlimited</label>
+
+				<%= f.label :buyer_will_get,"Buyer will get" %>
+				<%= f.text_field :buyer_will_get, placeholder:"a Book, a Pdf, a Shirt etc" %>	
+			</p>		
+
+			<p class="pricing">
+				<%= f.label :pricing,"Pricing:" %>
+				<%= f.radio_button(:pricing,"fixed_price") %> <span>Fixed Pricing</span>
+				<%= f.radio_button(:pricing,"pay_anything_from") %> <span>Flexible Pricing</span>
+				<br>
+				<div class="fp-fields input-prepend none">
+					<span class="add-on"> $ </span>
+					<%= f.text_field :amount, :placeholder => "100" %>
+				</div>
+				<br>
+				<div class="panyf input-prepend none">
+					<span class="add-on"> +$ </span>
+					<%= f.text_field :amount_from, :placeholder => "1"%>
+				</div>
+				<br>
+			</p>
+		</div>
+
+	</div><!-- End details tab !-->
+</div><!-- End Slide 0 !-->

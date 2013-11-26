@@ -1,0 +1,36 @@
+<div class="row">
+  <%= render :partial => "side_tabs" %>
+  <div class="large-9 small-12 columns">
+    <% if @orders.present? %>
+      <%= content_tag :div, "", id: "orders_chart", data: {orders: Order.chart_data } %>
+      <br><br>
+
+      <table>
+        <thead>
+          <tr>
+            <td>Order no</td>
+            <td>Product Name</td>
+            <td>Product Type</td>
+            <td>Order Amount</td>
+            <td>Created at</td>
+          </tr>
+        </thead>
+        <tbody>
+        <% for order in @orders %>
+          <tr>
+            <td><%= link_to order.order_no, order_path(order), style: "text-decoration:underline;"%></td>
+            <td><%= truncate(order.product_title, length: 28) %></td>
+            <td><%= order.product_type %></td>
+            <td>$<%= order.amount %></td>
+            <td><%= order.created_at.strftime("%b %d %Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+    <% else %>
+      <h2 style="margin: 150px; text-align: center;"> You currently have no orders.</h2>
+    <% end %>
+  </div>
+
+</div>
+<br>

@@ -1,0 +1,6 @@
+<li class='current'>
+  <%= f.text_field :name, placeholder: "Field Name" %>
+  <%= f.check_box :required %> <%= f.label :required %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "&#10006".html_safe, '#', class: "remove_fields" %>
+</li>

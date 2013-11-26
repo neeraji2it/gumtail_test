@@ -1,0 +1,18 @@
+<div class="row">
+	<% action = controller.action_name.to_s %>
+	<div class="large-9 small-12 columns">	
+		<%= render "home_top_nav" %>
+		<div id = "main-area">
+			<% if action == "index"> %>
+				<%= render "index" %>
+			<% else %>
+				<%= render "/home/#{action}" %>
+			<% end %>
+		</div>
+	</div>
+	<div id = "side-bar" class="large-3 small-12 columns">
+		<%#= render "tags" %>
+	</div>
+
+	
+</div>

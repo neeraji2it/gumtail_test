@@ -1,0 +1,9 @@
+<div class="row">
+  <%= render :partial => "dashboard/side_tabs" %>
+
+  <div class="large-9 columns">
+    <%= form_for @notification, :url => notification_updation_setting_path(@notification),:html => {:class => "message"} do |f|%>
+      <%= render :partial => "notifications",:locals => {:f => f} %>
+    <% end %>
+  </div>
+</div>

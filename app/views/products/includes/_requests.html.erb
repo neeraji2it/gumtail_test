@@ -1,0 +1,20 @@
+<p class="request_message none"> Your request has been sent.</p>
+<% if current_user and @product.requested?(current_user.email) %>
+  <p> Your request has been sent.</p>
+<% else %>
+  <div class="request_div">
+    <p> This product is currently sold out. Really want it? <%= link_to "Send a request.", "#", class: "request_link" %> </p>
+    <div class="request_box none">
+        <%= form_for(@product.requests.build(publisher_id: @product.store.user_id, product_id: @product.id), remote: true) do |f| %>
+            <%= f.hidden_field :publisher_id %>
+            <%= f.hidden_field :product_id %>
+            <% if signed_out? %>
+              <%= f.label :email, "Email" %>
+              <%= f.text_field :email %>
+            <% end %>
+
+            <%= f.submit "Send Request", class: "btn btn-small btn-primary" %>
+          <% end %>
+        <% end %>
+    </div>
+  </div>

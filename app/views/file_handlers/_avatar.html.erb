@@ -1,0 +1,6 @@
+<%= form_for FileHandler.new  do |file| %>
+	<%= file.label :file_path, "Change Photo:" %>
+	<%= file.file_field :file_path, class: "avatar_upload_button" %>
+	<%= file.hidden_field :manual_type %>
+	<%= file.hidden_field :klasss %>
+<% end %>

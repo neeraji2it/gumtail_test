@@ -1,0 +1,61 @@
+<table>
+  <tr>
+    <td><%= f.label :store_name,"Name" %></td>
+    <td><%= f.text_field :store_name %></td>
+    <td><%= validation_error(@store.errors["store_name"]) %></td>
+  </tr>
+  <% if controller.action_name.to_s == "new" %>
+    <tr>
+      <td><%= f.label :currency,"What currency do you want to sell in? <small> THis cannot be changed! </small>".html_safe %></td>
+      <td><%= f.select :currency, options_for_select(CURRENCY,:selected => f.object.currency) %></td>      
+    </tr>
+  <% end %>
+
+  <tr>
+    <td><%= f.label "Themes" %></td>
+    <td><%= collection_select :store, :original_theme_id, @themes, :id, :theme_name,{prompt: 'Please select a theme'}%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :delivery_returns,"Delivery & Returns" %></td>
+    <td><%= f.text_area :delivery_returns,:cols => 30,:rows => 3 %></td>
+    <td><%= validation_error(@store.errors["delivery_returns"]) %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :more_info,"More Info" %></td>
+    <td><%= f.text_area :more_info,:cols => 30,:rows => 3 %></td>
+    <td><%= validation_error(@store.errors["more_info"]) %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :store_terms,"Terms and Condition" %></td>
+    <td><%= f.text_area :store_terms,:cols => 30,:rows => 3 %></td>
+    <td><%= validation_error(@store.errors["store_terms"]) %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :payout_email,"Payout" %> <small> Which PayPal account should receive payments? </small></td>
+    <td><%= f.text_field :payout_email %></td>
+    <td><%= validation_error(@store.errors["payout_email"]) %></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td><%= f.check_box :show_recommendations %>&nbsp;Show my recommendations in my store</td>
+     <td><%= validation_error(@store.errors["show_recommendations"]) %></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td><%= f.check_box :ask_questions %>&nbsp;Add an "Ask me anything" page to your shop.</td>
+     <td><%= validation_error(@store.errors["ask_questions"]) %></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td><%= f.check_box :terms_conditions %>&nbsp;Accept tails terms and conditions</td>
+     <td><%= validation_error(@store.errors["terms_conditions"]) %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.submit @store.new_record? ? "create" : "Update"%></td>
+  </tr>
+</table>

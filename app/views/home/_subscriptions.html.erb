@@ -1,0 +1,5 @@
+<ul>
+<% for product in @products %>
+  <li style="list-style-type: none;"><%= product.full_name %> has posted a product <%= product.product_title %> on <%= product.created_at.strftime("%b %d %Y") %></li>    
+<% end %>
+</ul>

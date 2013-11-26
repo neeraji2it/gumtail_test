@@ -1,0 +1,9 @@
+<div class="row">
+	<div class="large-12 columns">
+		<h3> People </h3>
+		<% @users.each do |user| %>
+			<hr>
+			<h4> <%= user.full_name %><small> Subscribe button here </small> <small>  <%= link_to "Visit profile", profile_path(user.username),   class: "right" %> </small></h4> 
+		<% end %>
+	</div>
+</div>

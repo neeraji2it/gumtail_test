@@ -1,0 +1,7 @@
+<li>
+<%= f.text_field :name, placeholder: "name" %>
+<%= f.text_field :type, placeholder: "type" %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "&#10006".html_safe, '#', class: "remove_names" %>
+
+</li>

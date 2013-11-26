@@ -1,0 +1,30 @@
+<div id="connect">
+  Register With <%= link_to "Facebook","/auth/facebook",:class => "facebook" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Twitter","/auth/twitter",:class => "twitter" %>
+</div><br /><br />
+
+<------- OR -----><br /><br />
+
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:html => {:class => "message"}) do |f| %>
+  <%= devise_error_messages! %>
+  <table>
+    <tr>
+      <td><%= f.text_field :username, :autofocus => true,:placeholder => "User Name" %></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :first_name,:placeholder => "First Name",:style => "width:122px" %>
+      <%= f.text_field :last_name,:placeholder => "Last Name",:style => "width:122px" %></td>
+    </tr>
+    <tr>
+      <td><%= f.email_field :email,:placeholder => "Email" %></td>
+    </tr>
+    <tr>
+      <td><%= f.password_field :password,:placeholder => "Password" %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit "Sign up" %></td>
+    </tr>
+  </table>
+<% end %>
+
+<%= render "devise/shared/links" %>

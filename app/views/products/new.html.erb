@@ -1,0 +1,20 @@
+<% product_flag ||= params[:type] || @product.product_type %>
+<% submit_text = "Post Product" %>
+
+<%= render partial: 'form_steps' %>
+ <br>
+<div class="form-slider" id="form-slider" data-position="0">
+	<div class="holder">
+		<!-- Here !-->
+		<%= render partial: "file_handlers/product_form", locals: { product_flag: product_flag, action: "new" } %>
+		<%= form_for @product, url: products_path(@product) do |f| %>
+	  		<%= render partial: 'form', locals: { f: f, submit_text: submit_text, product_flag: product_flag, action: "new" } %>
+		<% end %>
+	</div><!-- End Holder !-->
+</div><!-- End From Slider !-->
+<br>
+<%= javascript_tag do %>
+  $(function() {
+      NewProduct.initialize();
+  });
+<% end %>

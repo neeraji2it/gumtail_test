@@ -1,0 +1,53 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380280.8969889:@value"ä[I"Ö(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Aries.Models.BackboneInfo = (function(_super) {
+    __extends(BackboneInfo, _super);
+
+    function BackboneInfo() {
+      _ref = BackboneInfo.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    BackboneInfo.prototype.initialize = function() {
+      this.listenTo(Aries.Vent, "user:logged_in", this.login);
+      return this.listenTo(Aries.Vent, "user:logged_out", this.logout);
+    };
+
+    BackboneInfo.prototype.login = function(id, username) {
+      return this.set({
+        id: id,
+        username: username,
+        loggedIn: true,
+        current_page: current_page
+      });
+    };
+
+    BackboneInfo.prototype.logout = function() {
+      var m,
+        _this = this;
+
+      m = new Aries.Models.Login({
+        id: this.id
+      });
+      return m.destroy({
+        success: function(model, data) {
+          _this.set({
+            loggedIn: false
+          });
+          delete _this.id;
+          delete _this.attributes.username;
+          delete _this.attributes.id;
+          return window.csrf(data.csrf);
+        }
+      });
+    };
+
+    return BackboneInfo;
+
+  })(Backbone.Model);
+
+}).call(this);
+:ET

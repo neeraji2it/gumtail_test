@@ -1,0 +1,97 @@
+<div class="row">
+  <%= render :partial => "side_tabs" %>
+  <div class="large-9 small-12 columns">
+  	<div class="row">
+
+	    <div class="large-12 columns">
+	      <div class="panel">
+	        <h5>User's store logo on a bg</h5>
+	        <p> </p>
+	      </div>
+	    </div>
+
+    </div>
+
+    <div class="row">
+
+	    <div class="large-4 columns">
+	      <div class="panel">
+	      	<small>Today  </small>
+	        <h5><b><%= Time.zone.now.strftime('%I.%m %p') %></b></h5>
+	        <p><%= Time.zone.today.strftime("%B %d, %Y") %></p>
+	      </div>
+	    </div>
+
+	    <div class="large-4 columns">
+	      <div class="panel">
+	      	<small>Subscribers </small>
+	        <h3 style="text-align:center;"> <%= current_user.subscribers.size %> </h3>
+	        <p> +1 this month </p>
+	      </div>
+	    </div>
+	    <div class="large-4 columns">
+	      <div class="panel">
+	      	<small>Subscriptions </small>
+	        <h3 style="text-align:center;"><%= current_user.subscriptions.size %></h3>
+	        <p> +1 this month</p>
+	      </div>
+	    </div>
+
+    </div>
+
+    <div class="row">
+
+	    <div class="large-4 columns">
+	      <div class="panel">
+	      	<small>Requests. </small>
+	        <h3 style="text-align:center;"><b>20,000</b></h3>
+	        <p> +5 this week </p>
+	      </div>
+	    </div>
+
+	    <div class="large-4 columns">
+	      <div class="panel">
+	      	<small>Recommendations. </small>
+	        <h3 style="text-align:center;"> 20,000 </h3>
+	        <p> +140 this week</p>
+	      </div>
+	    </div>
+
+	    <div class="large-4 columns">
+	      <div class="panel">
+	      	<small>Reviews. </small>
+	        <h3 style="text-align:center;"> 8 9 8 9 6</h3>
+	      </div>
+	    </div>
+
+    </div>
+
+
+     <div class="row">
+
+	    <div class="large-4 columns">
+	      <div class="panel">
+	        <h3 style="text-align:center;"><b>Tags</b></h3>
+	        <ul>
+	        	<li> <a>#vintage </a> </li>
+	        	<li> <a>#vintage </a> </li>
+	        	<li> <a>#vintage </a> </li>
+	        	<li> <a>#vintage </a> </li>
+	        	<li> <a>#vintage </a> </li>
+	        	<li> <a>#vintage </a> </li>
+	        </ul>
+	      </div>
+	    </div>
+
+	    <div class="large-8 columns">
+	      <div class="panel">
+	        <h1 style="text-align:center;"> 293,000 </h1>
+	        <p> +34% in the last 30 days.</p>
+	      </div>
+	    </div>
+
+    </div>
+
+  </div>
+</div>
+<br>

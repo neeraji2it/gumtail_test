@@ -1,0 +1,19 @@
+<h4> Current user's products page-> <small> Work in progress...</small></h4> 
+<d iv id="store_products">
+  <div id="products" style="margin-top: 31px;">
+    <%= link_to "<div style='font-size: 52px;'>+</div><br/>Add a Product".html_safe,"javascript:void(0)",:id => "product_create" %>
+  </div>
+  <br><hr>
+  <% if @products %>
+    <% @products.each do |product| %>
+      <div id="products">
+        <% @cover_photo = FileHandler.where(:product_id => product.id,:is_cover => true).first %>
+        <%= @cover_photo != nil ? image_tag(@cover_photo.file_path.thumb) : '' %>
+        <%= product.product_title %>
+        <%= link_to "Edit", edit_product_path(:number => product.random_no) %>
+        <%= link_to "Show", product_path(:number => product.random_no) %>
+      </div><br><hr>
+    <% end %>
+  <% end %>
+</div>
+

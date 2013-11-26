@@ -1,0 +1,6 @@
+<% if @recommendation.new_record? %>
+  $("#recommendModal").prepend('<p style="color:red;"><%= j @recommendation.errors.full_messages.join(', ').html_safe %></p>');
+<% else %>
+	//render a partail for sharing to email embed etc
+	$("#recommendModal").html("<h3>Recommended</h3> <p> Referral link: <%= product_url(:subdomain =>@product.store.store_name,:number => @product.random_no) + "?r=" + current_user.ref_id %></p>");
+<% end %>

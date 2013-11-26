@@ -1,0 +1,13 @@
+<% present @user do |user_presenter| %>
+	<div class="row">
+	  <div class="large-9 columns">
+	    <div class="inline-nav">
+	      <%= render :partial => 'nav_bar', locals: { user: @user }  %>
+	    </div>
+	    <%= render :partial => "product" %>
+	  </div>
+	  <div class="large-3 columns">
+	    <%= render "profile_card", user_presenter: user_presenter  %>
+	  </div>
+	</div>
+<% end %>

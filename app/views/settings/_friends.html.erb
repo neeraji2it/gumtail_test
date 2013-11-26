@@ -1,0 +1,10 @@
+<ul class="socialNetworks">
+  <li style="list-style-type: none;">
+    <%= @f_connected == 'facebook' ? '' : (link_to 'Facebook','/auth/facebook') %>
+  </li>
+  <li style="list-style-type: none;">
+    <%= @t_connected == 'twitter' ? '' : (link_to 'Twitter','/auth/twitter') %>
+  </li>
+</ul>
+
+

@@ -1,0 +1,65 @@
+<div id="page-wrap">
+
+  <div id="contact-area">
+
+    <%= form_for current_user,:url =>update_social_signup_settings_path,:html => {:class => "message",:method => 'PUT'} do |f| %>
+      <table>
+        <tr>
+          <td><%= f.label :username,"User Name:" %></td>
+          <td><%= f.text_field :username ,:id=>"Name"%></td>
+        </tr>
+        <tr>
+          <td><%= f.label :email,"Email:" %></td>
+          <td><%= current_user.email %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password,"Password:" %></td>
+          <td><%= f.password_field :password,:id=>"Name" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "Save",:class=>"submit-button"  %></td>
+        </tr>
+      </table>
+      <div style="clear: both;"></div>
+    <% end %>
+  </div>
+
+</div>
+
+<style>
+
+  #page-wrap {
+    width: 660px;
+    background: white;
+    padding: 20px 50px 20px 50px;
+    margin: 20px auto;
+    min-height: 500px;
+    height: auto !important;
+    height: 500px;
+  }
+  
+  #header,#footer{
+    display:none;
+  }
+
+  #contact-area {
+    width: 600px;
+    margin-top: 25px;
+  }
+
+  #contact-area input {
+    padding: 5px;
+    width: 300px;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.4em;
+    margin: 0px 0px 10px 0px;
+    border: 2px solid #ccc;
+  }
+
+  #contact-area input.submit-button {
+    width: 100px;
+    float: right;
+  }
+
+</style>

@@ -1,0 +1,6 @@
+<% if !@bought.blank? %>
+  <div class="text-center" style="width: 100%; color: white; background-color: black;">
+  <p>You previously bought this product on <%= @bought.first.created_at.strftime("%d %b. %Y") %> 
+    <%= link_to "Check it here", drawer_path(current_user.username)%> <!-- Use link to order/order_no instead!-->  </p>
+  </div>
+<% end %>

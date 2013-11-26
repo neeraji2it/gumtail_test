@@ -1,0 +1,67 @@
+<% cover_flag = (defined? cover) ? "cover_contain_file_hack" : "" %>
+<% photos_flag = (defined? photos) ? "" : "none" %>
+<%= form_for FileHandler.new  do |file| %>
+	<div id="cover_uploader" class='upload-container text-center <%= "#{cover_flag}" %>'>
+		<div class="remote_url none">
+		</div>	
+			<div id="cover_file">
+				<% if defined?(cover) %>
+					<%= image_tag cover.file_path_url.to_s %>
+					<input type="hidden" class="product-files-id" name="file_ids[]" value="<%= cover.id %>">
+					<%= hidden_field_tag :remove_file %>
+					<%= hidden_field_tag :_destroy %>
+  					<%= link_to "&#10006".html_safe, "#", id: "remove-#{cover.id}", class: "cover_remove_file", file_id: "#{cover.id}" %>
+				<% end %>
+			</div>
+
+			<div class='local'>
+				<%= file.file_field :file_path, class: "cover_upload_button" %>
+				<h4> Click or drop file to upload a cover </h4>
+				<h5> Cover can be an image, video or audio </h5>
+			</div>
+			<div class="modal"></div>
+		
+	</div>
+	<%= file.hidden_field :is_cover, value: true %>
+	<%= file.hidden_field :manual_type %>
+	<%= file.hidden_field :klasss %>
+
+	<div id="more-photos" class= '<%= (action == "edit") ? "" : "none" %>'>
+		<ul> 
+			<% if defined?(photos) %>
+				<% photos.each do|photo| %>
+					<li class="image-box">
+						<%= image_tag photo.file_path_url.to_s %>
+						<input type="hidden" class="product-files-id" name="file_ids[]" value="<%= photo.id %>">
+					</li>
+				<% end %>
+			<% end %>
+			<li class="image-box add text-center">
+				<div class="">
+					<h4></h4>
+					<p> Add Photos </p>
+					<%= file.file_field :file_path, multiple: true, name: "file_handler[file_path]", class: "more-photos-upload" %>
+					<div class="modal"></div>
+				</div>
+			</li>
+			<li class="image-box empty"></li>
+			<li class="image-box empty"></li>
+			<li class="image-box empty"></li>
+			<li class="image-box empty"></li>
+			<li class="image-box empty"></li>
+
+		</ul>
+		
+	</div>
+	<% if product_flag == "digital" %>
+		<div id="digital_file_uploader" class="digital_file_uploader text-center none">
+			<div class="local">
+				<%= file.file_field :file_path, class: "digital_file_upload_button" %>
+				<h4> Click to upload a file </h4>
+				<h5> Your file can be a zip, video, audio or image </h5>
+			</div>
+			<div class="modal"></div>
+		</div>
+	<% end %> 
+
+<% end %>

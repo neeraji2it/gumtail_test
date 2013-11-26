@@ -1,0 +1,99 @@
+<div class="slide" id="slide-1">
+  <div class="options_tab newFormContainer clearfix">
+
+    <div class="referrals">
+      <h4> Referral commision <%= link_to "Add", "#", class: "add_referral" %></h4>
+      <p> Reward shoppers by giving them an incentive to promote your product to their friends <i class="info-more"> Learn more</i> </p>
+
+      <div class="referral-form <%= (action == "new") ? "none" : "" %>">
+          <%= f.label :commision, "Commision (per sale)" %>
+          <%= f.text_field :commision, placeholder: "Should be a whole number e.g. 10"%>
+          <span class="add-on"> % </span>
+      </div>
+    </div>
+
+    <div class="mini-rule"></div>
+
+    <div class="shipping_profile">
+      <h4>Shipping Options <%= link_to_add_nested_fields "Add shipping option", f, :sprofiles, "add_soptions", "sprofiles" %></h4>
+      <p>This is for shipping profile, just putting it on here for now.</p>
+      <div class="shipping-profile-form <%= (action == "new") ? " none " : "" %> clearfix">
+         <span class="shipping-profile-subheader">Options </span>
+         <span class="shipping-profile-subheader">Shipping Cost </span>
+         <span class="shipping-profile-subheader">No of days </span>
+        <ul>
+          <%= f.fields_for :sprofiles do |builder| %>
+              <%= render 'sprofile_sprofiles', f: builder %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="buyers-purchase-form clearfix">
+      <div class="grid_3 info">
+        <h4>Buyer's purchase form</h4>
+        <p>This is the information your customer enters before buying this product. We only require an email, but you can ask for more by adding a custom field, and entering a placeholder.
+        </p>
+      </div>
+
+      <div class="custom-form grid_6">
+        <div class="purchase-form">
+          <p class="full-width">
+            <%= text_field_tag "", "", :placeholder => "Buyer's full name", :readonly => "readonly" %>
+            <%= text_field_tag "", "", :placeholder => "Buyer's email address", :readonly => "readonly" %>
+          </p>
+
+          <ul id="custom-fields">
+            <%= f.fields_for :fields do |builder| %>
+              <%= render 'field_fields', f: builder %>
+            <% end %>
+          </ul>
+
+          <div class="shipping-section" style="display: block;">
+            <label>Mailed to:</label>
+            <p>
+              <%= text_field_tag "","", :placeholder => "Buyer's Street address", :readonly => "readonly"%>
+            </p>
+            <span class="multi-column">
+              <%= text_field_tag "","", :placeholder => "Buyer's City",:class => "first", :readonly => "readonly"%>
+              <%= text_field_tag "","", :placeholder => "Buyer's State", :readonly => "readonly"%>
+              <%= text_field_tag "","", :placeholder => "Buyer's Zip/Post code",:class => "last", :readonly => "readonly"%>
+            </span>
+          </div>
+
+        </div>
+        <%= link_to_add_nested_fields "Add custom field", f, :fields, "add_fields","fields" %>
+
+      </div>
+    </div>
+
+    <div class="offers">
+      <h4>Offers <%= link_to_add_nested_fields "Add offer", f, :offers, "add_offers","offers" %></h4>
+      <p>Give discounts to your customers by creating an offer and sharing its code with them.</p>
+      <div class="offer-form <%= (action == "new") ? " none " : "" %>">
+         <span class="offer-subheader">Offer code </span>
+        <span class="offer-subheader">Amount off </span>
+        <span class="offer-subheader">Quantity </span>
+        <ul id="offers">
+            <%= f.fields_for :offers do |builder| %>
+                <%= render 'offer_offers', f: builder %>
+            <% end %>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="mini-rule"></div>
+
+    <% if controller.action_name.to_s == "new" %>
+      <div class="tags">
+        <h4> Tags <%= link_to "Add tags", "#", class: "add_tags" %></h4>
+        <p> They help shoppers find your product. Tags should be separated by commas</p>
+        <div class="tag-form <%= (action == "new") ? " none " : "" %>">
+          <%= f.text_field :tag_list, :placeholder => "Vintage, Handmade, Shoe etc." %>
+        </div>
+      </div>
+    <% end %>
+
+
+  </div><!-- End options tab !-->
+</div><!-- End Slide 1 !-->

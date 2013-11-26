@@ -1,0 +1,5 @@
+<% ['notice', 'error', 'warning'].each do |f|%>
+	<% if flash[f.to_sym] %>
+		<div class="<%= f %>"><%=  flash[f.to_sym] %></div>
+	<% end %>
+<% end %>

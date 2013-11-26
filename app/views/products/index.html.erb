@@ -1,0 +1,25 @@
+
+<div class="products clearfix">
+	<% @products.each do |product| %>
+    <a href="<%= product_url(:subdomain =>product.store.store_name,:number => product.random_no) %>" style="text-decoration:none;">
+		 <div class="product" style="float:left; margin: 15px; height: 250px; width: 200px;">
+          <div class="product_bg">
+            <div class="inner">
+              <img style="height: 200px; width: 200px;" src="<%= product.cover("thumb_big") %>"/> 
+            </div>
+          </div>
+          <div class="product_text">
+            <span class="product_title"><%= truncate(product.product_title, length: 28) %></span>
+            <br>
+            <span class="publisher"> 
+              <%= link_to "#{product.store.user.first_name}",profiles_path %>
+            </span>
+            <br>
+            <span>
+              <p> Tags: <%= raw product.tags.map(&:name).map { |t| link_to '#' + t, tag_path(t) }.join(' ') %></p>
+            </span>
+          </div>
+        </div>
+      </a>
+	<% end %>
+</div>

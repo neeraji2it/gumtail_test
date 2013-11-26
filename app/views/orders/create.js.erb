@@ -1,0 +1,6 @@
+<% if @pay.errors.any? %>
+	$('#orderModal').prepend("<p style='color:red;'><%= j @pay.errors.full_messages.join(', ').html_safe %></p>");
+<% else %>
+alert("j <%= @pay.inspect %>");	
+	$('#orderModal').html('<%= j render(partial: "order_complete", locals: {order: @pay}) %>');
+<% end %>

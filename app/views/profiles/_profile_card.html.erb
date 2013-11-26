@@ -1,0 +1,36 @@
+<div class="sidebar">
+	<div class="user_card">
+		<div class="profile">
+			<%= user_presenter.avatar("thumb_big") %>
+		    <p class="fullname"><%= @user.full_name %></p>
+		    <p class="location"><a><%= user_presenter.location %></a></p>
+		</div>
+		<ul class="subscribers">
+			<div class="stats">
+			  <a href="<%= subscriptions_profile_path(@user) %>">
+			    <strong id="subscriptions" class="stat">
+			    	<!-- counter cache this later !-->
+			    	<%= user_presenter.subscription_count %>
+			    </strong>
+			  </a>
+			  <span>|</span>
+			  <a href="<%= subscribers_profile_path(@user) %>">
+			    <strong id="subscribers" class="stat">
+			    	<%= user_presenter.subscribers_count %>
+			    </strong>
+			  </a>
+			</div>
+		</ul>
+		<div class="user-control">
+            <div class="relation">
+            	<%= render "edit_link" %>
+            	<div id="subscribe_form">
+            		<%= user_presenter.relationship_with_current_user if current_user %>
+            	</div>
+            	<hr>
+            </div>    
+		</div>
+	</div>
+	<%= render "profiles/user_cards/ask" %>
+
+</div>

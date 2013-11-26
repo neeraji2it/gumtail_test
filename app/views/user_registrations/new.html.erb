@@ -1,0 +1,36 @@
+<div id="connect">
+  Register With <%= link_to "Facebook","/auth/facebook",:class => "facebook" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Twitter","/auth/twitter",:class => "twitter" %>
+</div><br /><br />
+
+<------- OR -----><br /><br />
+
+
+<%= form_for(@user, :url => user_registrations_path(@user),:html => {:class => "message"}) do |f| %>
+  <table>
+    <tr>
+      <td><%= f.text_field :username, :autofocus => true,:placeholder => "User Name" %></td>
+      <td><%= validation_error(@user.errors["username"]) %></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :first_name,:placeholder => "First Name" %></td>
+      <td><%= validation_error(@user.errors["first_name"]) %></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :last_name,:placeholder => "Last Name" %></td>
+      <td><%= validation_error(@user.errors["last_name"]) %></td>
+    </tr>
+    <tr>
+      <td><%= f.email_field :email,:placeholder => "Email" %></td>
+      <td><%= validation_error(@user.errors["email"]) %></td>
+    </tr>
+    <tr>
+      <td><%= f.password_field :password,:placeholder => "Password" %></td>
+      <td><%= validation_error(@user.errors["password"]) %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit "Sign up" %></td>
+    </tr>
+  </table>
+<% end %>
+<br />
+<%= render "devise/shared/links" %>

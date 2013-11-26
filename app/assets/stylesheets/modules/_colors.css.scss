@@ -1,0 +1,95 @@
+// Texts
+//#222
+$base-text-color: #333333;
+$white:           #ffffff;
+//$blue:          #4183c4;
+
+// Links
+$linkColor: 		 #31afff !default;
+$linkColorHover: 	 darken($linkColor, 15%) !default;
+$standont-link-dark: #16171a;
+$standont-link-blue: #227dda;
+
+// Backgrounds
+$base-background-color: $white;
+$header-background: 	#393c41;
+$footer-background: 	#F6F6F6;
+
+// Grays
+// -------------------------
+$black:         #000 !default;
+$grayDarker:    #222 !default;
+$grayDark:      #333 !default;
+$grayDarker:	#555 !default;
+$gray:          #666 !default;
+$blendGray:	    #BBB !default;
+$blendGrayDark:	#777 !default;
+$grayLight:     #999 !default;
+$grayLighter:   #eee !default;
+$white:         #fff !default;
+$maxDarkGray:	#626263;
+$greyDisabled:	#9DA0A4;
+
+// Accent colors
+// -------------------------
+$blue:     #049cdb !default;
+$blueDark: #0064cd !default;
+$green:    #46a546 !default;
+$red:      #9d261d !default;
+$yellow:   #ffc40d !default;
+$orange:   #f89406 !default;
+$pink:     #c3325f !default;
+$purple:   #7a43b6 !default;
+
+
+// Hr border color
+// -------------------------
+$hrBorder: $grayLighter !default;
+
+// Buttons
+// -------------------------
+$btnBackground:          $white !default;
+$btnBackgroundHighlight: darken($white, 10%) !default;
+$btnBorder:              #ccc !default;
+
+$btn-blue:           $linkColor !default;
+$btn-blue-highlight: adjust-hue($btn-blue, 20%) !default;
+
+$btn-green:           #74caab !default;
+$btn-green-highlight: #57ad68 !default;
+
+$btn-red:             #e3262e !default;
+$btn-red-highlight:   #ab171e !default;
+
+$btn-dark-gray: $header-background !default;
+$btn-dark-gray-highlight: $grayDarker !default;
+
+$baseBorderRadius: 4px;
+
+// Forms
+// -------------------------
+$inputBackground:               $white !default;
+$inputBorder:                   #ccc !default;
+$inputBorderRadius:             $baseBorderRadius !default;
+$inputDisabledBackground:       $grayLighter !default;
+$formActionsBackground:         #f5f5f5 !default;
+$inputHeight:                   $base-line-height + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
+
+// Form states and alerts
+// -------------------------
+$warningText:             #c09853 !default;
+$warningBackground:       #fcf8e3 !default;
+$warningBorder:           darken(adjust-hue($warningBackground, -10), 3%) !default;
+
+$errorText:               #b94a48 !default;
+$errorBackground:         #f2dede !default;
+$errorBorder:             darken(adjust-hue($errorBackground, -10), 3%) !default;
+
+$successText:             #468847 !default;
+$successBackground:       #dff0d8 !default;
+$successBorder:           darken(adjust-hue($successBackground, -10), 5%) !default;
+
+$infoText:                #3a87ad !default;
+$infoBackground:          #d9edf7 !default;
+$infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;

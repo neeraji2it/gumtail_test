@@ -1,0 +1,26 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380281.2419071:@value">[I"0(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Aries.Views.Feature = (function(_super) {
+    __extends(Feature, _super);
+
+    function Feature() {
+      _ref = Feature.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    Feature.prototype.template = HandlebarsTemplates['app/templates/feature'];
+
+    Feature.prototype.render = function() {
+      this.$el.html(this.template(this.model.toJSON()));
+      return this;
+    };
+
+    return Feature;
+
+  })(Backbone.View);
+
+}).call(this);
+:ET

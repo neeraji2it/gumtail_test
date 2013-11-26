@@ -1,0 +1,250 @@
+// Temporary styles 
+// -------------------------------------------------- 
+// General    
+// --------------------------------------------------    
+.dashboard_nav {
+	list-style: none;
+	
+}
+// --------------------------------------------------    
+.nav-tabs {
+	padding-top: 5px;
+	padding-left: 10px;
+	height: 50px;
+	border: 1px solid #E6E6E6;
+	border-left: none;
+	border-right: none;
+}
+.nav-tabs li {
+	height: 100%;
+	font-weight: normal;
+	display: inline-block;
+	float: none;
+	margin-right: 20px;
+
+}
+.nav-tabs a {
+	color: #999;
+	border: 0;
+	font-family: "akn-proxima-semibold",helvetica neue,helvetica,arial,sans-serif;
+	font-size: 18px;
+	padding: 12px 0 10px 0;
+	letter-spacing: 1px;
+	-webkit-transition: all .3s ease-out 0s;
+	transition: all .3s ease-out 0s;
+	text-decoration: none;
+}
+
+// profile
+// -------------------------------------------------- 
+.user_card {
+	#background: #e6e6e6;
+	border-radius: 3px;
+}
+.profile {
+	padding: 10px;
+}
+.user-photo-container img {
+	vertical-align: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+.fullname {
+	color: #383D48;
+	font-size: 20px;
+	padding: 18px 0 5px;
+	font-weight: bold;
+}
+.location {
+	color: #90959F;
+	font-size: 13px;
+	padding: 0;
+}
+
+.about-divs {
+	background-color: #FFF;
+	margin-bottom: 30px;
+}
+.basic {
+	border-top: 5px solid #76A7FA !important;
+	border: 1px solid #D8D8D8;
+}
+.about {
+	border-top: 5px solid #E46F61 !important;
+	border: 1px solid #D8D8D8;
+}
+.people {
+	border-top: 5px solid #8CC474 !important;
+	border: 1px solid #D8D8D8;
+}
+.shop {
+	border-top: 5px solid #6F85BF !important;
+	border: 1px solid #D8D8D8;
+}
+
+// Balance
+// -------------------------------------------------- 
+.balance-stats {
+	overflow: visible;
+	padding: 20px 0;
+	background-color: #FFF;
+	padding: 20px 10px;
+	//overflow: hidden;
+	margin-bottom: 30px;
+	display: table;
+	width: 100%;
+	border: 1px #DDD solid;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.balance-stats ul li:first-child  {
+	border-left: none;
+}
+
+.balance-stats ul li {
+	list-style: none;
+	display: table-cell;
+	color: #777;
+	font-size: 34px;
+	line-height: 34px;
+	font-weight: 400;
+	padding: 13px 5px;
+	text-align: center;
+	vertical-align: top;
+	border-left: 1px solid #DDD;
+	width: 200px;
+}
+.balance-stats ul li small {
+	display: block;
+	font-size: 11px;
+	line-height: 120%;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 3px;
+}
+.asc {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+}
+.desc {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+// Morris css
+// -------------------------------------------------- 
+
+.morris-hover{position:absolute;z-index:1000;}.morris-hover.morris-default-style{border-radius:10px;padding:6px;color:#000;background:rgba(255, 255, 255, 0.8);border:solid 2px rgba(0, 0, 0, 0.8);font-family:sans-serif;font-size:12px;text-align:center;}.morris-hover.morris-default-style .morris-hover-row-label{font-weight:bold;margin:0.25em 0;}
+.morris-hover.morris-default-style .morris-hover-point{white-space:nowrap;margin:0.1em 0;}
+
+.box {
+    background-color: #ffffff;
+    color: #888888;
+    height: 218px;
+   left: 100%;
+    padding: 20px;
+    position: fixed;
+    right: 30%;
+    top: 25%;
+   width: auto;
+    z-index: 101;
+    border:5px solid #888888;
+    border-radius:10px;
+    -moz-border-radius:10px;
+  }
+
+
+  a.boxclose {
+    background: url("/assets/cancel.png") repeat scroll left top transparent;
+    cursor: pointer;
+    float: right;
+    height: 26px;
+    left: 32px;
+    position: relative;
+    top: -33px;
+    width: 26px;
+  }
+.delete_product{
+  margin-top:66px;
+}
+
+
+// Recommend
+// -------------------------------------------------- 
+.compact-modal {
+	overflow-y: scroll;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 751;
+}
+.modalContainer {
+	position: relative;
+	display: block;
+	position: absolute;
+	z-index: 100;
+	height: auto;
+	width: 30%;
+	background-color: #fff;
+	border: 1px solid #666;
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.4);
+	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+	left: 30%;
+	top: 30%;
+	border-radius: 3px;
+
+	
+}
+
+.overlay {
+    background-color: #E2E4E4;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    opacity:0.9;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    //display:none;
+    height: 100%;
+    width: 100%;
+}
+
+.modalContainer .hd {
+	color: #444;
+	padding: 14px 13px 13px 15px;
+	margin:0;
+	top: 0;
+	font-size: 15px;
+	box-shadow: none;
+	border-bottom: 1px solid #cdcfd2;
+	text-shadow: 0 1px 0 #FFF;
+	font-weight: bold;
+	border-radius: 3px 3px 0 0;
+	background-image: linear-gradient(to bottom, #F7F7F7, #F2F2F2);
+}
+
+.modalContainer .fig {
+	position: relative;
+	padding: 14px 14px 28px 139px;
+	margin:16px;
+	box-shadow: inset 0 0 0 1px #E9EAED;
+	background: none;
+	min-height: 84px;
+	line-height: 18px;
+	z-index: 3;
+}

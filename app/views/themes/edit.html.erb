@@ -1,0 +1,9 @@
+<div class="row">
+	<div class="large-12 columns">
+		<h1> edit</h1>
+		<%= form_for @theme, html: { method: :put} do |f| %>
+			<%= render 'includes/common/errors', object: @theme %>
+		    <%= render :partial => "form", locals: {f: f} %>
+		<% end %>
+	</div>
+</div>

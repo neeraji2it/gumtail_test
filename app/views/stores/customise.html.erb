@@ -1,0 +1,347 @@
+<!-- temp css !-->
+<style type="text/css" media="screen">
+body {
+  font-family: "Helvetica Neue",Arial,sans-serif;
+  font-size: 12px;
+  line-height: 120%;
+  color: #444;
+  outline-width: 0;
+}
+a {
+  color: #C1C9D1;
+  text-decoration: none;
+  cursor: pointer;
+}
+h3 {
+  color: #FFF;
+}
+#container{
+  width: 100%;
+  height: 100%;
+}
+#drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  bottom: 0;
+  background: #3B3B3B;
+  /* background-image: url('/images/customize/cardboard.png?c4da052a6b3c3970a8c67366f380148d'); */
+}
+#preview_container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 300px;
+  bottom: 0;
+  background-color: #FFF;
+  z-index: 1000;
+  -webkit-box-shadow: -3px 0 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: -3px 0 5px rgba(0,0,0,.5);
+  -ms-box-shadow: -3px 0 5px rgba(0,0,0,.5);
+  -o-box-shadow: -3px 0 5px rgba(0,0,0,.5);
+  box-shadow: -3px 0 5px rgba(0, 0, 0, 0.5);
+}
+.holder {
+  width: 1200px;
+  height: 100%;
+}
+.slider {
+  width: 300px;
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+.slide {
+  float: left;
+}
+
+#slide-0 {
+  width: 300px;
+  height: 100%;
+
+}
+#slide-1 {
+  width: 300px;
+  height: 100%;
+  
+}
+#slide-2 {
+  width: 600px;
+  height: 100%;
+}
+.top_toolbar {
+  height: 30px;
+  padding: 7px 24px 6px;
+  border-bottom: 1px solid #141313;
+  background-color: #252323;
+  -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5) inset;
+  -moz-box-shadow: 0 -1px 1px rgba(0,0,0,0.5) inset;
+  -ms-box-shadow: 0 -1px 1px rgba(0,0,0,0.5) inset;
+  -o-box-shadow: 0 -1px 1px rgba(0,0,0,0.5) inset;
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5) inset;
+}
+.content_container {
+  position: absolute;
+  bottom: 0;
+  top: 50px;
+  width: 300px;
+}
+#theme_list {
+  position: absolute;
+  bottom: 0;
+  top: 10px;
+  width: 286px;
+  margin-top: 23px;
+}
+#theme_list_content {
+
+}
+.scroll_content {
+  width: 250px;
+  padding-right: 15px;
+  padding-left: 23px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+#appearance_container {
+  position: absolute;
+  width: 100%;
+  top: 44px;
+  bottom: 0;
+  margin-top: 0;
+}
+.fields {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  width: 100%;
+  background-color: #FFF;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+#editor {
+  position: absolute;
+  width: 600px;
+  top: 44px;
+  bottom: 0;
+}
+.label {
+  color: #777;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: bold;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  margin-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 10px;
+}
+.field {
+  padding-right: 10px;
+  text-align: right;
+}
+.input.text_field, .select_control select {
+  background-color: rgba(0, 0, 0, 0);
+  vertical-align: middle;
+  width: 100%;
+  border-width: 0;
+  text-align: right;
+  margin-left: 70px;
+}
+
+</style>
+<div id="container">
+  <div id="drawer" stlye="width: 300px;">
+    <div id="slider" class="slider">
+      <div class="holder">
+
+        <div id="slide-0" class="themes slide" style="">
+          <div class="cbox" style="height:100%; width:100%;">
+            <div class="top_toolbar"> 
+              <div class="right" style="float:right;"> 
+                <button id="use_theme_button"> Use </button>
+                <button id="cancel_theme_button">Cancel</button>
+              </div>
+            </div>
+            <div class="content_container"> 
+              <div id="theme_list" class="theme_list">
+                <div id="theme_list_content"  class="scroll_content" style="position: absolute; top: 0px; bottom: 0px;">
+                  <div class="theme">
+                    <img width="250px" height="200px" src="http://media.tumblr.com/themes/wide/HQnVbyhKLX1hflMj.png">   
+                    <p style="color:#FFF"> Theme <span> by  <a href="#" target="_blank">Tommy</a></span></p>
+                  </div>
+                  <div class="theme">
+                    <img width="250px" height="200px" src="http://media.tumblr.com/themes/wide/HQnVbyhKLX1hflMj.png">   
+                    <p style="color:#FFF"> Theme <span> by  <a href="#" target="_blank">Tommy</a></span></p>
+                  </div> 
+                  <div class="theme">
+                    <img width="250px" height="200px" src="http://media.tumblr.com/themes/wide/HQnVbyhKLX1hflMj.png">   
+                    <p style="color:#FFF"> Theme <span> by  <a href="#" target="_blank">Tommy</a></span></p>
+                  </div> 
+                  <div class="theme">
+                    <img width="250px" height="200px" src="http://media.tumblr.com/themes/wide/HQnVbyhKLX1hflMj.png">   
+                    <p style="color:#FFF"> Theme <span> by  <a href="#" target="_blank">Tommy</a></span></p>
+                  </div> 
+                  <div class="theme">
+                    <img width="250px" height="200px" src="http://media.tumblr.com/themes/wide/HQnVbyhKLX1hflMj.png">   
+                    <p style="color:#FFF"> Theme <span> by  <a href="#" target="_blank">Tommy</a></span></p>
+                  </div> 
+                  <div class="theme">
+                    <img width="250px" height="200px" src="http://media.tumblr.com/themes/wide/HQnVbyhKLX1hflMj.png">   
+                    <p style="color:#FFF"> Theme <span> by  <a href="#" target="_blank">Tommy</a></span></p>
+                  </div> 
+                  <div class="theme">
+                    <img width="250px" height="200px" src="http://media.tumblr.com/themes/wide/HQnVbyhKLX1hflMj.png">   
+                    <p style="color:#FFF"> Theme <span> by  <a href="#" target="_blank">Tommy</a></span></p>
+                  </div> 
+                  <div class="theme">
+                    <img width="250px" height="200px" src="http://media.tumblr.com/themes/wide/HQnVbyhKLX1hflMj.png">   
+                    <p style="color:#FFF"> Theme <span> by  <a href="#" target="_blank">Tommy</a></span></p>
+                  </div> 
+                  <div class="theme">
+                    <img width="250px" height="200px" src="http://media.tumblr.com/themes/wide/HQnVbyhKLX1hflMj.png">   
+                    <p style="color:#FFF"> Theme <span> by  <a href="#" target="_blank">Tommy</a></span></p>
+                  </div> 
+                  <div class="theme">
+                    <img width="250px" height="200px" src="http://media.tumblr.com/themes/wide/HQnVbyhKLX1hflMj.png">   
+                    <p style="color:#FFF"> Theme <span> by  <a href="#" target="_blank">Tommy</a></span></p>
+                  </div>     
+                </div>       
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="slide-1" class="appearance slide">
+          <div class="top_toolbar"> 
+              <div class="left"style="float:left">
+                  <button id="back_to_themes_button" class="dark_button back_button" slide="0"><span></span>Themes</button>
+              </div>
+              <div class="right" style="float:right">
+                  <button id="close_button" class="medium_button">Exit</button>
+              </div>
+          </div>
+          <div id="appearance_container" class="content_container" style="background: #3B3B3B;"> 
+            <div class="apperance_content scroll_content" style="position: absolute; top: 20px; bottom: 0px;">
+
+              <div id="current_theme_view_anchor">
+                    <div id="current_theme_view" class="first_module">
+                        <div class="theme_thumbnail selected">
+                          <img id="current_theme_thumbnail" width="250px" class="thumbnail_image_media shadow" 
+                          src="http://www.tumblr.com/images/customize/theme_thumbnail_custom.png">
+                        </div>
+
+                        <div class="right" style="float:right;">
+                            <button id="edit_html_button" class="dark_button inset_button edit_html" slide="2" style="">Edit HTML</button>
+                        </div>
+                        
+                        <p style="color:#FFF">
+                            <span id="" class="">Custom theme</span>
+                            <br>
+                        </p>
+                    </div>
+              </div>
+              <hr>
+              <%= form_for @current_store, :url => update_custom_appearance_path(params[:store]),:method => 'PUT', remote: true do |f| %>
+
+                <div id="shop_header_view" class="fields"> 
+
+                  <label for="title" class="text_field_control">
+                      <span class="label"><%= f.label :title %> </span> 
+                      <span class="field"><%= f.text_field :title%></span>
+                      <span class="label"><%= f.label :description %> </span> 
+                      <span class="field"><%= f.text_area :description, rows:"5", cols: "30"%></span>
+                  </label>
+                  <!-- Background [upload] [clear] !-->
+                  <!-- Header [upload] [clear] !-->
+                </div>
+
+
+                <div id="appearance_view">
+                <h3> Appearance </h3>
+                <div class="fields">
+                  <label for="link_color" class="text_field_control">
+                    <span class="label"><%= f.label :link_color, "Link Color" %></span> 
+                    <span class="field">
+                      <div class="color_swatch" style="background-color: #708090; border-color: #708090">
+                        <%= f.text_field :link_color, class: "text_field color" %>
+                      </div>
+                    </span>
+                  </label>
+
+                  <label for="bg_color" class="text_field_control">
+                    <span class="label"><%= f.label :bg_color, "Background Color" %> </span> 
+                    <span class="field">
+                      <div class="color_swatch" style="background-color: #708090; border-color: #708090">
+                        <%= f.text_field :bg_color, class: "text_field color" %>
+                      </div>
+                    </span>
+                  </label>
+
+                  <label for="title_color" class="text_field_control">
+                    <span class="label"><%= f.label :title_color, "Title Color" %></span> 
+                    <span class="field">
+                      <div class="color_swatch" style="background-color: #708090; border-color: #708090">
+                        <%= f.text_field :title_color, class: "text_field color" %>
+                      </div>
+                    </span>
+                  </label>
+
+                </div>
+                <a class="reset_button"> Reset Defaults </a>
+              </div>
+
+              <div id="advanced_container">
+                <h3> Advanced </h3>
+                <div class="fields">
+                    <label for="google_analytics_id" class="text_field_control">
+                      <span class="label"><%= f.label :google_analytics, "Google Analytics ID" %></span> 
+                      <span class="field"><%= f.text_field :google_analytics %></span>
+                    </label>
+                </div>
+
+              </div>
+              <%= f.submit "Save" %>
+
+            <% end %>
+
+
+              
+
+             </div>
+
+          </div>
+        </div>
+
+        <div id="slide-2" class="editor slide">
+          <div class="top_toolbar"> 
+              <div class="left" style="float:left;">
+                  <button id="back_to_appearance_button" class="dark_button back_button" slide="1"><span></span>Appearance</button>
+              </div>
+              <div class="right" style="float:right;">
+                  <button id="save_preview_button" style="display:none" class="green_button inset_button">Save</button>
+                  <button id="update_preview_button" class="green_button" title="⌘S">Update Preview</button>
+              </div>
+
+          </div>
+
+          <div id="editor" class="ace_tail ace_editor">
+            <%= @theme %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="preview_container" style="left:300px;">
+    <iframe frameborder="0" src="http://assets.txmblr.com/customize_preview_receiver.html?07f634b04eeac3f5e009c8b812a54538" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: block;"></iframe>
+      
+  </div>
+  <input id="current_store_id" type="hidden" value="<%= @current_store.id %>"/>
+  <input id="current_username" type="hidden" value="<%= @current_user.username %>"/>
+</div>  

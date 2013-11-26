@@ -1,0 +1,31 @@
+var cover_container = $(".upload-container");
+var more_photos = $("#more-photos");
+var file_container = $("#digital_file_uploader");
+var avatar_container = $(".avatar_div");
+
+<% klasss = Array(@files).first.properties['klasss'] %>
+<% file_type = Array(@files).first.file_type %>
+
+$('.modal').hide(); 
+
+
+<% if @files.new_record? %>
+  alert("Failed to upload: <%= j @files.errors.full_messages.join(', ').html_safe %>");
+  //dislay pop up to send report here
+<% elsif(klasss == "cover_upload_button") %>
+	cover_container.addClass("with-content");
+	cover_container.find('.local').addClass("none");
+ 	cover_container.append('<%= j render(partial: "cover", locals: {file: @files, type: file_type }) %>');
+ 	more_photos.show();
+ 	file_container.show();
+<% elsif(klasss == "more-photos-upload") %>
+	more_photos.find('ul').prepend('<li class="image-box"><%= j render(@files) %></li>');
+<% elsif(klasss == "digital_file_uploader") %>
+	file_container.addClass("with-content");
+	file_container.find('.local').addClass('none');
+	file_container.append('<%= j render(partial: "digital_file", locals: {file: @files, type: file_type }) %>');
+<% elsif(klasss == "avatar_upload_button") %>
+	avatar_container.addClass("with-content");
+	avatar_container.find('img').remove();
+	avatar_container.append('<%= j render(@files) %>');
+<% end %>

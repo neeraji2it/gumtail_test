@@ -1,0 +1,18 @@
+<% product_flag ||= params[:type] || @product.product_type %>
+<% submit_text = "Update Product" %>
+<%= render partial: 'form_steps' %>
+ <br>
+<div class="form-slider" id="form-slider" data-position="0">
+	<div class="holder"> 
+		<%= render partial: "file_handlers/product_form", locals: { product_flag: product_flag, cover: Array(@cover).first, photos: @photos, action: "edit" } %>
+		<%= form_for @product, url: update_product_path(number:@product.random_no) do |f| %>
+	  		<%= render partial: 'form', locals: { f: f, submit_text: submit_text, product_flag: product_flag, action: "edit" } %>
+		<% end %>
+	</div><!-- End Holder !-->
+</div><!-- End From Slider !-->
+<%= javascript_tag do %>
+  $(function() {
+      NewProduct.initialize();
+      NewProduct.ProductEditEvents();
+  });
+<% end %>

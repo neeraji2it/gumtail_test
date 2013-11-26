@@ -1,0 +1,21 @@
+  <% if current_user and current_user.account_activation_code != nil %> 
+    <div class="confirm_account">We sent an email with instructions about how to confirm your account,please check your email or <%= link_to 'resend email',resend_confirmations_user_registrations_path,:method => 'PUT' %></div>
+  <% end %>
+  
+  <div class="section-container horizontal-nav" data-section="horizontal-nav">
+    <section class="section">
+      <p class="title"> <%= link_to "Featured","/" %> </p>
+    </section>
+    <section class="section">
+      <p class="title"> <%= link_to "Stories","/home/stories" %> </p>
+    </section>
+    <section class="section">
+      <p class="title"> <%= link_to "Subscriptions","/home/subscriptions" %> </p>
+    </section>
+    <!--
+    <section class="section">
+      <p class="title"> <%#link_to "Recommendations","/home/recommendations" %> </p>
+    </section>
+    !-->
+
+  </div>

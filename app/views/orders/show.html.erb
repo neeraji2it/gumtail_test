@@ -1,0 +1,21 @@
+<p> Order no: <%= @order.order_no %> </p>
+<p> Amount: <%= @order.amount %> </p>
+<p> <%= @order.product.product_title %> </p>
+<p> <%= @order.product_type %> </p>
+<p> <%= @order.full_name %></p>
+<p> <%= @order.email %></p>
+<p> <%= @order.created_at %></p>
+<p> <%= @order.street_address %></p>
+<p> <%= @order.city %></p>
+<p> <%= @order.post_code %></p>
+
+<p> (<%= pluralize(@order.comments.size,"Comment") %>) </p>
+<hr>
+<div id="comments">
+	<%#render @order.comments %>
+</div>
+<hr>
+
+<h4> New comments </h4>
+<%# render 'comments/form' %>
+

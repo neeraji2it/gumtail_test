@@ -1,0 +1,91 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380281.229777:@value"±
+[I"£
+(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Aries.Views.Content = (function(_super) {
+    __extends(Content, _super);
+
+    function Content() {
+      _ref = Content.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    Content.prototype.className = "row";
+
+    Content.prototype.template = HandlebarsTemplates['app/templates/content'];
+
+    Content.prototype.events = {
+      "click a.homeStories": "homeStories",
+      "click a.homeSubscriptions": "homeSubscriptions",
+      "click a.homeRecommendations": "homeRecommendations",
+      "click a.homeFeatured": "homeFeatured"
+    };
+
+    Content.prototype.homeFeatured = function(e) {
+      e.preventDefault();
+      this.swapMain(new Aries.Views.Features({
+        collection: new Aries.Collections.Features
+      }));
+      return Backbone.history.navigate("");
+    };
+
+    Content.prototype.homeStories = function(e) {
+      e.preventDefault();
+      this.swapMain(new Aries.Views.Stories({
+        collection: new Aries.Collections.Stories
+      }));
+      return Backbone.history.navigate("/home/stories");
+    };
+
+    Content.prototype.homeSubscriptions = function(e) {
+      e.preventDefault();
+      this.swapMain(new Aries.Views.Subscriptions({
+        collection: new Aries.Collections.Subscriptions
+      }));
+      return Backbone.history.navigate("/home/subscriptions");
+    };
+
+    Content.prototype.homeRecommendations = function(e) {
+      e.preventDefault();
+      this.swapMain(new Aries.Views.Recommendations({
+        collection: new Aries.Collections.Recommendations
+      }));
+      return Backbone.history.navigate("home/recommendations");
+    };
+
+    Content.prototype.render = function() {
+      this.$el.html(this.template());
+      this.renderSideView();
+      return this;
+    };
+
+    Content.prototype.swapMain = function(v) {
+      this.changeCurrentMainView(v);
+      return this.$('#main-area').html(this.currentMainView.render().el);
+    };
+
+    Content.prototype.changeCurrentMainView = function(v) {
+      if (this.currentMainView) {
+        this.currentMainView.remove();
+      }
+      return this.currentMainView = v;
+    };
+
+    Content.prototype.renderSideView = function() {
+      var v;
+
+      v = new Aries.Views.Tags({
+        collection: new Aries.Collections.Tags
+      });
+      return this.$('#side-bar').html(v.render().el);
+    };
+
+    return Content;
+
+  })(Backbone.View);
+
+}).call(this);
+:ET

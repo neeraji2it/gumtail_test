@@ -1,0 +1,5 @@
+<% current_action = controller.action_name.to_s %>
+<%= render "wallet_nav" %>
+<div id="walletContent">
+	<%= render "/profiles/#{current_action}" %>
+</div>

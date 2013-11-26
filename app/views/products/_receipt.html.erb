@@ -1,0 +1,93 @@
+  <div class="slide" id="slide-2">
+    <div class="receipt_tab newFormContainer">
+      <div class="buyers-receipt clearfix">
+        <div class="receipt-header page-header text-center">
+          <h3>Thank you for your order</h3>
+          <small> This is a demo showing what the buyer's receipt would look like </small>
+        </div>
+        <div class="clearfix order-info">
+          <div class="grid_3">
+            <p>Order:</p>
+            <ul>
+              <li>Order no: <span>235678</span></li>
+              <li>Order Date: <span>2nd May 1905</span></li>
+              <li>Quantity: <span>5</span></li>
+              <li>Price: <span>$23.00</span></li>
+              <li>Shipping: <span>$4.50</span></li>
+              <li>Total: <span>$27.50</span></li>
+            </ul>
+          </div>
+          <div class="grid_3">
+            <p>Ship to:</p>
+            <ul>
+              <li>Vernon Dursley</li>
+              <li>vernon@grunnings.com</li>
+              <li>4, Private Drive</li>
+              <li>Little Whinging,Surrey.</li>
+              <li>England.</li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="grid_3">
+            <p>Seller</p>
+            <ul>
+              <li><%= current_user.first_name.capitalize + " " + current_user.last_name %></li>
+              <li>Other store info</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mini-rule"></div>
+        <div>
+          
+          <%= f.text_area :custom_message, placeholder: "You can add a custom message for the buyer" %>
+        </div>
+        <table border="0" width="100%" class="table">
+          <tbody>
+            <tr class="stripe text-left header">
+              <th>&nbsp;</th>
+              <th>Item Name</th>
+              <th>Quantity</th>
+              <th>Status</th>
+              <th>Price</th>
+              <th class="text-right">Line Total</th>
+            </tr>
+            <tr>
+              <td><img src="https://d3h1owo1z0fmto.cloudfront.net/images-User-81086-co73x08tvw87i6vvhdsn_bigger.jpeg" width="32" height="32"></td>
+              <td><a href="#"> One touch electric salt pepper mill</a> </td>
+              <td class="text-center"> 3</td>
+              <td class="text-left">Processing order</td>
+              <td class="text-left"> $23.00</td>
+              <td class="text-right"> $69.00</td>
+            </tr>
+            <tr class="stripe">
+              <td colspan="5" class="text-right">
+                <strong>Shipping</strong>
+              </td>
+              <td class="text-right">
+                <strong>$4.50</strong>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="5" class="text-right">
+                Offers
+              </td>
+              <td class="text-right">
+                - $0.00
+              </td>
+            </tr>
+
+            <tr class="stripe">
+              <td colspan="5" class="text-right">
+                <strong>Total</strong>
+              </td>
+              <td class="text-right">
+                <strong>$73.50</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <small> Sent to Vernon Dursley(vernon@grunnings.com)</small>
+
+      </div><!-- buyers-receipt !-->
+    </div><!-- End receipt tab !-->
+  </div><!-- End Slide 2 !-->

@@ -1,0 +1,10 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380281.3908327:@value"¤[I"—(function() {
+  window.Discover = {
+    initialize: function() {
+      return Discover.events();
+    },
+    events: function() {}
+  };
+
+}).call(this);
+:ET

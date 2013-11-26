@@ -1,0 +1,13 @@
+<h2>Requests</h2>
+<ul>
+  <% @requests.each do |request| %>
+    <li>
+		<% if request.user_id != 0 %>
+			<!-- redo this during performance optimization !-->
+			<%= link_to request.email, profile_path(User.find(request.user_id).username) %>
+		<% else %>
+			<%= request.email %>
+		<% end %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,12 @@
+<%= render 'trending' %>
+<%= render 'discover_sub_nav' %>
+<div id="discoverContent"> 
+	<%= render 'products' %>
+</div>
+
+
+<%= javascript_tag do %>
+	$(function () {
+		Discover.initialize();
+	})
+<% end %>

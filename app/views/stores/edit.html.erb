@@ -1,0 +1,12 @@
+<div class="row">
+  <%= render :partial => "dashboard/side_tabs" %>
+
+  <div class="large-9 columns">
+  	<hr>
+  	<h3> Things to do here.</h3>
+  	<hr>
+    <%= form_for @store, :html => {:class => "message"},:method => 'PUT' do |f| %>
+      <%= render :partial => "form",:locals => {:f => f} %>
+    <% end %>
+  </div>
+</div>

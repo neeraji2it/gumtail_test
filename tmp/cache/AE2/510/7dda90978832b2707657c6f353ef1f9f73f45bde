@@ -1,0 +1,16 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380280.8702092:@value"j[I"\(function() {
+  window.Aries = {
+    Routers: {},
+    Models: {},
+    Views: {},
+    Collections: {},
+    Vent: _.clone(Backbone.Events),
+    init: function(data) {
+      Aries.backbone_info = new Aries.Models.BackboneInfo(data.backbone_info);
+      new Aries.Routers.MainRouter();
+      return Backbone.history.start();
+    }
+  };
+
+}).call(this);
+:ET

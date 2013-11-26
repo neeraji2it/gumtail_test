@@ -1,0 +1,5 @@
+<% if relationship %>
+Subscribed to <%= link_to (is_current_user(relationship.publisher.id)) ? "You" : relationship.publisher.full_name, profile_path(relationship.publisher.username)  %>
+<% end %>
+<!-- i can put else for unsubscribe but that's not necessary in stories i think. !-->
+

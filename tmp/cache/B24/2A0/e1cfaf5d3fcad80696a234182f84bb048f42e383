@@ -1,0 +1,13 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380280.9618866:@value"[I"ø(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["app/templates/content"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"large-9 small-12 columns\">\n	<div class=\"section-container horizontal-nav\" data-section=\"horizontal-nav\">\n	    <section class=\"section\">\n	      <p class=\"title\"> <a class=\"homeFeatured\" href=\"#\">Featured</a>  </p>\n	    </section>\n	    <section class=\"section\">\n	      <p class=\"title\"> <a class=\"homeStories\" href=\"/#home/stories\">Stories</a></p>\n	    </section>\n	    <section class=\"section\">\n	      <p class=\"title\"> <a class=\"homeSubscriptions\" href=\"/#home/subscriptions\">Subscriptions</a> </p>\n	    </section>\n	    <section class=\"section\">\n	      <p class=\"title\"> <a class=\"homeRecommendations\" href=\"/#home/recommendations\">Recommendations</a> </p>\n	    </section>\n  	</div>\n\n	<div id = \"main-area\">\n	</div>\n</div>\n<div id = \"side-bar\" class=\"large-3 small-12 columns\">\n</div>\n";
+  });
+  return this.HandlebarsTemplates["app/templates/content"];
+}).call(this);
+:ET

@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="large-12 columns">
+		<div class="section-container horizontal-nav" data-section="horizontal-nav">
+			<section class="section  discoverProducts <%= params[:action] == 'discover' ? 'active':'' %>">
+			  <p class="title"> <%= link_to 'Products',discover_path, :remote => true %>  </p>
+			</section>
+			<section class="section  discoverShops <%= params[:action] == 'shop' ? 'active':'' %>">
+			  <p class="title"> <%= link_to 'Shops',discover_shops_path, :remote => true %> </p>
+			</section>
+			<section class="section  discoverPeople <%= params[:action] == 'people' ? 'active':'' %>">
+			  <p class="title"> <%= link_to 'People',discover_people_path, :remote => true %></p>
+			</section>
+		</div>
+	</div>
+</div>

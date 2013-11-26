@@ -1,0 +1,11 @@
+<div class="wrapper activity">
+	<ul class="activity-list">
+		<h4>Recent Activities</h4>
+		<hr>
+		<% if @activities %>
+			<%= render partial: 'activities/activity', collection: @activities %>
+		<% else %>
+			<h5> No recent activities.</h5>
+		<% end %>
+	</ul>
+</div>

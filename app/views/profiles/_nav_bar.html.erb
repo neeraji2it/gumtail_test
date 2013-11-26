@@ -1,0 +1,16 @@
+<div class="section-container horizontal-nav" data-section="horizontal-nav">
+    <section class="section <%= params[:action] == 'show' ? 'active':'' %>">
+      <p class="title"> <%= link_to "About", profile_path(user.username) %> </p>
+    </section>
+    <section class="section <%= params[:action] == 'drawer' ? 'active':'' %>">
+      <p class="title"> <%= link_to "Drawer", drawer_path(user.username) %> </p>
+    </section>
+    <section class="section">
+      <p class="title"> <%= link_to "Activities", activities_path(user.username) %> </p>
+    </section>
+    <!--
+    <section class="section <%#params[:action] == 'recommends' ? 'active':'' %>">
+      <p class="title"> <%#link_to "Recommendations",recommends_path(user.username) %> </p>
+    </section>
+    !-->
+</div>

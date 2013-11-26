@@ -1,0 +1,43 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380281.3662472:@value"([I"(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Aries.Views.Subscriptions = (function(_super) {
+    __extends(Subscriptions, _super);
+
+    function Subscriptions() {
+      _ref = Subscriptions.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    Subscriptions.prototype.template = HandlebarsTemplates['app/templates/subscriptions'];
+
+    Subscriptions.prototype.initialize = function() {
+      this.listenTo(this.collection, "reset", this.render);
+      return this.collection.fetch({
+        reset: true
+      });
+    };
+
+    Subscriptions.prototype.render = function() {
+      this.$el.html(this.template());
+      this.collection.forEach(this.renderSubscription, this);
+      return this;
+    };
+
+    Subscriptions.prototype.renderSubscription = function(model) {
+      var v;
+
+      v = new Aries.Views.Subscription({
+        model: model
+      });
+      return this.$('ul').append(v.render().el);
+    };
+
+    return Subscriptions;
+
+  })(Backbone.View);
+
+}).call(this);
+:ET

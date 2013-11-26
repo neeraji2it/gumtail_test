@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="large-12 columns">
+
+    <div class="large-9 columns">
+      <dl class="sub-nav">
+        <dt>Filter:</dt>
+        <dd class="<%= cat_type == "all" ? "active" : "" %> "> <%= link_to "All", sort: "all", :remote => true %></dd>
+        <dd class="<%= cat_type == "physical" ? "active" : "" %> "> <%= link_to "Physical", sort: "physical", :remote => true %> </dd>
+        <dd class="<%= cat_type == "digital" ? "active" : "" %> "> <%= link_to "Digital", sort: "digital", :remote => true %> </dd>
+      </dl>
+    </div>
+    <div class="large-3 columns">
+      <a href="#" data-dropdown="category-dropdown"> All Categories </a>
+      <ul id="category-dropdown" class="f-dropdown" data-dropdown-content>
+        <% @categories.each do |category| %>
+          <!-- need to add one more col in product category to make this work!-->
+          <li><%= link_to category.category, params.merge(sort: params[:sort],category: category.category), :remote => true  %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="large-12 columns">
+      <% @products.each do |product| %> 
+       <a href="<%= product_url(:subdomain => product.store.store_name,:number => product.random_no) %>" style="color: black; text-decoration:none;">
+          <div class="product" style="height: 300px; width: 200px; display: inline-block; margin: 5px; vertical-align: top;">
+            <img style="height: 200px; width: 200px;" src="<%= product.cover("thumb_big") %>"/> 
+             <br>
+            <div class="product_text">
+              <p class="product_title" style="border-bottom: 1px solid black;"> <%= truncate(product.product_title, length: 23)%></p>
+            </div>
+          </div>
+        </a>
+      <% end %>
+    </div>
+
+
+  </div>
+</div>
+<%#params[:sort] %>
+<%#params[:category] %>
+
+<!--
+<%#@categories.each do |category| %>
+  <hr>
+  <h4> <%#category.category %><small> ->  <%#category.category_type %></small> <small><a class="right" href="#">See all</a></small> </h4> 
+  <%#category.products.each do |product| %> 
+     <a href="<%#product_url(:subdomain => product.store.store_name,:number => product.random_no) %>" style="color: black; text-decoration:none;">
+        <div class="product" style="height: 300px; width: 200px; display: inline-block; margin: 5px; vertical-align: top;">
+          <img style="height: 200px; width: 200px;" src="<%#product.cover("thumb_big") %>"/> 
+           <br>
+          <div class="product_text">
+            <p class="product_title" style="border-bottom: 1px solid black;"> <%#truncate(product.product_title, length: 23)%></p>
+            <p class="product_title"> <%#truncate(product.description, length: 80)%></p>
+          </div>
+        </div>
+  </a>
+  <%#end %>
+<%#end %>
+!-->

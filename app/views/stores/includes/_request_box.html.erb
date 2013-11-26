@@ -1,0 +1,15 @@
+<div id="requestDrop" class="f-dropdown content medium" data-dropdown-content>
+  	<h4>Request this product.</h4>
+  	<%= form_for(@product.requests.build(publisher_id: @product.store.user_id, product_id: @product.id),remote: true) do |f| %>
+	    <%= f.hidden_field :publisher_id %>
+	    <%= f.hidden_field :product_id %>
+	    <% if signed_out? %>
+	      <%= f.label :email, "Email" %>
+	      <%= f.text_field :email %>
+	    <% end %>
+	    <%= f.label :note, "Additional note" %>
+	    <%= f.text_area :note %>
+
+	    <%= f.submit "Send Request", class: "btn btn-small btn-primary" %>
+    <% end %>
+</div>

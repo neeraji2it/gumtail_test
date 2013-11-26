@@ -1,0 +1,8 @@
+<div class="error_messages">
+<h5><%= pluralize(errors.count, "error") %> prohibited this order from being completed:</h5>
+<ul>
+<% errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
+</div>

@@ -1,0 +1,36 @@
+<% if current_user %>
+    <li> <%= link_to "Wallet - $#{ current_user.balance }",balance_profiles_path %></li>
+    <li> <%= link_to 'Dashboard',dashboard_index_path %></li>
+    <li> <%= link_to 'Discover',discover_path %> </li>
+    <li class="has-dropdown">
+      <a href="#"><%= (current_user and current_user.first_name != nil) ? current_user.first_name.capitalize : "Me" %> </a>
+      <ul class="dropdown"> 
+        <li> <%= link_to 'Profile',profile_path(current_user.username) %> </li>
+        <li><%= link_to_user_shop(current_user) %></li>
+        <li> <%= link_to 'Drawer', drawer_path(current_user.username) %></li>
+        <li> <%= link_to 'Questions',questions_path %></li>
+        <li> <%= link_to 'Find Friends',find_friends_path %> </li>
+        <li> <%= link_to 'Sign Out',destroy_user_session_path,:method => 'DELETE' %> </li>
+      </ul>
+    </li>
+
+<% else %>
+      <div id="connect" style="color: white;padding-bottom: 24px; display: none;">
+        <div style="float: left;
+             left: 360px;
+             padding: 3px;
+             position: relative;
+             top: -37px;"><%= link_to "Sign up With Facebook","/auth/facebook",:class => "facebook" %>
+        </div>
+      <div style="float: left;
+           left: 360px;
+           padding: 3px;
+           position: relative;
+           top: -37px;"><%= link_to "Sign up With Twitter","/auth/twitter",:class => "twitter" %><br/>
+        <div style="float:right;">or <%= link_to "Sign up with email","/user_registrations/new" %></div>
+      </div>
+    </div>
+    <li><%= link_to 'Discover',discover_path %></li>
+    <li><%= link_to_function 'Login',"signin_form()" %></li>
+    <li><%= link_to_function 'Signup',"signup_form()" %></li>
+<% end %>

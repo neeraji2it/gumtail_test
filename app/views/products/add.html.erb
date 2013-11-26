@@ -1,0 +1,71 @@
+<!-- This is temporary, the front end will be done properly after the features are complete!-->
+<style type="text/css">
+.product_options {
+	width: 858px;
+	margin: 20px auto 20px;
+	height: 320px;
+	display: block;
+}
+.product_options .type {
+	width: 286px;
+	height: 284px;
+	float: left;
+}
+.product_options .type:hover {
+	box-shadow: 0px 0px 10px #eee;
+	cursor: pointer;
+}
+.product_options .type#physical {
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+}
+.product_options .type#digital {
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+}
+.product_options .type#auction {
+	
+}
+.product_options .type img {
+	margin-top: 100px;
+}
+.description {
+	color: #555;
+	background: #FFFFD9;
+	padding: 10px 15px;
+	border-radius: 10px;
+	opacity: 0.8;
+}
+
+</style>
+
+<div class="text-center">
+	<div class="product_options">
+		<a href="/products/new?type=physical">
+	      <div class="type" id="physical" onmouseover="add_change_description('Something you can touch like a spaceship, cd, book or t-shirt.');" style="opacity: 1;">
+			    <img src="https://manage.trychec.com/assets/img/product/add/physical_icons.png">
+			    <br><br>
+			    <h4> Physical </h4>
+			  </div>
+	    </a>
+		<a href="/products/new?type=digital">
+			  <div class="type" id="digital" onmouseover="add_change_description('Anything from code snippets, ebooks &amp; music to a hidden webpage or blog post.');" style="opacity: 1;">
+	        <img style="margin-top:95px" src="https://manage.trychec.com/assets/img/product/add/digital_icons.png">
+	        <br><br>
+	        <h4> Digital </h4>
+	      </div>
+	    </a>
+	    <!--
+		<a href="/products/new?type=auction">
+			  <div class="type" id="auction" onmouseover="add_change_description('Auctioning items');" style="opacity: 1;">
+		       <img style="margin-top:70px; margin-left: -2px;" src="https://manage.trychec.com/assets/img/product/add/services_icons.png">
+		        <h4> Auction </h4>
+		      </div>
+	    </a>
+	    !-->
+	</div>
+	<span class="description">Something you can touch like a spaceship, cd, book or t-shirt.</span>
+	<br>
+	<br>
+	<br>
+</div>

@@ -1,0 +1,29 @@
+<p>- - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - -</p>
+<p>The order placed by <%= order.full_name %> has been confirmed.</p>
+<p> Order no: <%= order.order_no %> </p>
+<p> Buyer's email: <%= order.email %> </p>
+<p>Item: <%= product.product_title %> </p>
+<p>Quantity: <%= order.quantity %></p>
+<p>Order date: <%= order.created_at.strftime("%d %b. %Y") %></p>
+<p>Paid: <%= order.amount_paid %></p>
+<p>Your earnings: <%= order.order_total %></p>
+<p>- - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - -</p>
+
+<p>DISPATCH INFORMATION FOR THIS ORDER</p>
+
+<p>You can see the order details by <%= link_to "Clicking here", ROOT_URL + order_url(order) %></p>
+<p> As this is a digital product the download link will be sent automatically to the buyer </p>
+
+<p>- - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - -</p>
+
+<p>ABOUT YOUR PAYMENT</p>
+
+<p>This transaction will be recorded in your <b> uncleared balance</b>, as soon as the download link is sent to the buyer. </p>
+<p>The payment will be automatically added to your <b> Available balance</b> a few hours after the link is sent to the buyer.</p> 
+<p>After funds are available, you can withdraw it at anytime you choose fit, it can take 6 to 10 business days for your bank to make the funds available in your bank account.</p>
+<p>Please make sure that your Bank Account information is always up to date so there are no delays in disbursements to your account.<p>
+<p> To do so:</p>
+
+<p>1. Go to Your Dashboard and click the Payment tab.</p>
+
+<p>2. Click the Add or Edit button to update your bank account information.</p>

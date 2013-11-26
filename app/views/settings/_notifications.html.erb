@@ -1,0 +1,49 @@
+<table>
+  <tr>
+    <td>Email Notifications</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.check_box :email_subscribe_to_you %> When someone subscribes to you</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.check_box :email_comments_on_your_story %> When someone comments on your story </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.check_box :email_product_is_featured %> When your product is featured </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.check_box :email_recommends_your_product %> When someone recommends one of your products</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.check_box :email_purchase_your_product %>When someone purchase one of your products</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.check_box :email_request_sold_out_product %> When someone requests your sold out products </td>
+  </tr>
+
+
+  <tr>
+    <td>Updates</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.check_box :news %>News</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.check_box :tips %>Tips</td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td><%= f.submit "Save Changes" %></td>
+  </tr>
+</table>

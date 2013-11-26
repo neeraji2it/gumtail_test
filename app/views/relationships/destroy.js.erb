@@ -1,0 +1,2 @@
+$("#subscribe_form").html("<%= escape_javascript(render('profiles/subscribe')) %>")
+$("#subscribers").html('<%= pluralize(@user.subscribers.count, "Subscriber") %>')

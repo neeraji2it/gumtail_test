@@ -1,0 +1,14 @@
+<table border="1">
+  <tr>
+    <th>Product Title</th>
+    <th>Product Type</th>
+    <th>Date</th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.product_title %></td>
+      <td><%= product.product_type %></td>
+      <td><%= product.created_at.strftime("%b %d %H:%M") %></td>
+    </tr>
+  <% end %>
+</table>

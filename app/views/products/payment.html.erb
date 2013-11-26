@@ -1,0 +1,62 @@
+<!--<%#= form_tag make_payment_product_path(@product) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%#= @product.amount %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+          data-key="<%#= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+  data-amount="<%#= @product.amount %>"></script>
+<%# end %>-->
+
+<%= form_for :transaction,:params => @result && @result.params[:transaction],
+  :errors => @result && @result.errors.for(:transaction),
+  :builder => ProductsHelper::BraintreeFormBuilder,
+  :url => Braintree::TransparentRedirect.url,
+  :html => {:autocomplete => "on",:class => 'message'} do |f| -%>
+  <%= hidden_field_tag :tr_data, Braintree::TransparentRedirect.transaction_data(
+    :redirect_url => confirm_payment_url(:product_id => @product.id),
+    :transaction => {:type => "sale", :amount => @product.amount == 0 ? '10' : @product.amount}
+  ) %>
+  <table width="130%">
+    <%= f.fields_for :customer do |c| -%>
+      <% if !current_user %>
+        <tr>
+          <td><%= c.label :first_name, "Full Name" %></td>
+          <td><%= c.text_field :first_name, value: "" %></td>
+        </tr>
+        <tr>
+          <td><%= c.label :email, "Email" %></td>
+          <td><%= c.text_field :email %></td>
+        </tr>
+      <% else %>
+        <%= c.hidden_field :first_name, value: "#{current_user.full_name}" %>
+        <%= c.hidden_field :email, value: "#{current_user.email}" %>
+      <% end %>
+      <tr>
+        <td><%= c.label :last_name, "Quantity" %></td>
+        <td><%= c.text_field :last_name %></td>
+      </tr>
+    <% end -%>
+    <%= f.fields_for :credit_card do |c| -%>
+      <tr>
+        <td><%= c.label :number, "Number" %></td>
+        <td><%= c.text_field :number %></td>
+      </tr>
+      <tr>
+        <td><%= c.label :expiration_date, "Expiration Date (MM/YY)" %></td>
+        <td><%= c.text_field :expiration_date %></td>
+      </tr>
+      <tr>
+        <td><%= c.label :cvv, "CVV" %></td>
+        <td><%= c.text_field :cvv %></td>
+      </tr>
+    <% end -%>
+    <tr>
+      <td></td>
+      <td><%= f.submit "Submit" %></td>
+    </tr>
+  </table>
+<% end -%>

@@ -1,0 +1,40 @@
+<div class="large-3 small-12 columns">
+  <ul class="side-nav">
+    <li><a href="/dashboard">Dashboard</a></li>
+    <li><a href="/dashboard/products">Products</a></li>
+    <li><a href="/dashboard/orders">Orders</a></li>
+    <li><a class="dviews <%= (params[:action] == "views") ? "active" : ""  %>" href="javascript:void(0)">Impressions <span style="font-size: 11px;" class="uniarrw"> &#x25BC; </span> </a>
+      <ul class="views_ul" style="display: none;">
+        <li><a href="/dashboard/views?vc=store">Store </a>
+        <li><a href="/dashboard/views?vc=products">Products </a>
+       </ul>
+    </li>
+    <li><a href="/dashboard/reviews">Reviews</a></li>
+    <li><a class="user_settings <%= %w[settings stores].include?(controller.controller_name.to_s)  ? "active" : ""  %>" href="javascript:void(0)">Settings <span style="font-size: 11px;" class="uniarrw"> &#x25BC; </span></a>
+      <ul class="settings_ul" style="display: none;">
+        <li><%= link_to "Account",account_settings_path %></li>
+        <li><%= link_to "Social",social_settings_path %></li>
+        <li><%= link_to "Notifications",current_user.notification.present? ? edit_notifications_setting_path(current_user.notification.id) : notifications_setting_path(current_user) %></li>
+        <li><%= link_to "Store",current_user.store.present? ? edit_store_path(current_user.store.id): new_store_path %></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!-- This is just here for feature purposes, evrything will be changed when i'm doing the frontend properly!-->
+<script type="text/javascript">
+  $(document).ready(function() {
+    if($('.user_settings').hasClass('active')) {
+        $('.settings_ul').show();
+    }
+    if($('.dviews').hasClass('active')) {
+        $('.views_ul').show();
+    }
+    $('.user_settings').click(function() {
+      $('.settings_ul').toggle();
+    });
+    $('.dviews').click(function() {
+      $('.views_ul').toggle();
+    });
+
+  });
+</script>

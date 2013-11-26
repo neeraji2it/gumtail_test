@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="large-12 columns">
+		<h4>Thank you for your purchase.</h4>
+		<hr>
+		<p>Your order was successfull, please check your email for more information.</p>
+		<% if current_user %>
+			<p> Order number: <%= link_to order.order_no, order_path(order), style: "text-decoration:underline;" %></p>
+		<% end %>
+		<hr>
+		<p> Share your purchase</p>
+		<p>Facebok, twitter, pinterest, google+,tumblr,stumbleupon,linkedin,etc. <p>
+	</div>
+</div>

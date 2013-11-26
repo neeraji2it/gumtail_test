@@ -1,0 +1,86 @@
+<div class="row">
+  <%= render :partial => "dashboard/side_tabs" %>
+  <div class="large-9 columns">
+    <div class="avatar_div" style="height: 240px; width: 240px;"> 
+      <img style="height: 240px; width: 240px;" src="<%= @user.avatar("thumb_big") %>"/> 
+      <div class="modal"></div> 
+    </div>
+    <br>
+    <%= render partial: "file_handlers/avatar" %>
+    <hr>
+    <%= form_for @user,:url =>update_account_settings_path,:html => {:class => "message"},:method => 'PUT' do |f| %>
+      <%= f.hidden_field :status,:value => 'update' %>
+      <table>
+        <tr>
+          <td><%= f.label :email,"Email" %></td>
+          <td><%= f.text_field :email %></td>
+          <td><%= validation_error(@user.errors["email"]) %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :first_name,"First Name" %></td>
+          <td><%= f.text_field :first_name %></td>
+          <td><%= validation_error(@user.errors["first_name"]) %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :last_name,"Last Name" %></td>
+          <td><%= f.text_field :last_name,:id => "last_name" %></td>
+          <td><%= validation_error(@user.errors["last_name"]) %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :username,"User Name" %></td>
+          <td><%= f.text_field :username %></td>
+          <td><%= validation_error(@user.errors["username"]) %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :bio,"Your story" %></td>
+          <td><%= f.text_area :bio,:cols => 30,:rows => 3 %></td>
+          <td><%= validation_error(@user.errors["bio"]) %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :location,"Location" %></td>
+          <td><%= f.text_field :location %></td>
+          <td><%= validation_error(@user.errors["location"]) %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :gender,"Gender" %></td>
+          <td><%= f.radio_button :gender,"male",:checked => true %><%= "Male" %><%= f.radio_button :gender,"female" %><%= "Female" %><%= f.radio_button :gender,"unspecified" %><%= "Unspecified" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :website,"Website" %></td>
+          <td><%= f.text_field :website %></td>
+          <td><%= validation_error(@user.errors["website"]) %></td>
+        </tr>
+  
+        <tr>
+          <td><%= f.label :country,"Country" %></td>
+          <td><%= f.text_field :country %></td>
+          <td><%= validation_error(@user.errors["country"]) %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :timezone,"Timezone" %></td>
+          <td><%= f.time_zone_select :timezone %></td>
+          <td><%= validation_error(@user.errors["timezone"]) %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :current_password,"Current Password" %></td>
+          <td><%= f.password_field :current_password %></td>
+          <td><%= validation_error(@user.errors['current_password']) %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password,"New Password" %></td>
+          <td><%= f.password_field :password %></td>
+          <td><%= validation_error(@user.errors['password']) %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password_confirmation,"Confirm Password" %></td>
+          <td><%= f.password_field :password_confirmation %></td>
+          <td><%= validation_error(@user.errors['password_confirmation']) %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "Update" %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>

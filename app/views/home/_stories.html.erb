@@ -1,0 +1,37 @@
+<% if @stories %>
+	<%= render partial: 'activities/activity', collection: @stories %>
+<% else %>
+	<h4> They are currently no stories present.</h4>
+<% end %>
+<hr>
+
+<!--
+	 @uids = []
+-    @ids = []
+-    @stories = []
+-    @store_ids = []
+-    current_user.friends.each do |friend|
+-      @uids<< ("'#{friend.uid}'")
+-    end
+-    current_user.relationships.each do |sub|
+-      @ids<< (sub.publisher_id)
+-      @store_ids<< (User.find(sub.publisher_id).store != nil ? User.find(sub.publisher_id).store.id : '0')
+-    end
+-    @users = User.where("provider_id IN (#{@uids.empty? ? "'0'" : @uids.split(",").join(",")})")
+-    @users.each do |user|
+-      @ids<< (user.id)
+-      @store_ids<< (user.store.id)
+-    end
+-    @recommendations = Recommendation.includes(:user).includes(:product).where("user_id IN (#{@ids.empty? ? '0' : @ids.split(",").join(",")})")
+-    @orders = Order.includes(:product).where("user_id IN (#{@ids.empty? ? '0' : @ids.split(",").join(",")})")
+-    @products = Rails.cache.fetch('products', :expires_in => 24.hours) {Product.includes(:store).where("store_id IN (#{@store_ids.empty? ? '0' : @store_ids.split(",").join(",")})")}
+-    @recommendations.each do |recommend|
+-      @stories<<[recommend.user.full_name,"recommended a product",recommend.product.product_title]
+-    end
+-    @orders.each do |order|
+-      @stories<<[order.full_name,"bought a product",order.product.product_title]
+-    end
+-    @products.each do |product|
+-      @stories<<[product.store.user.full_name,"listed a product",product.product_title]
+-    end
+!-->

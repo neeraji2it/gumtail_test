@@ -1,0 +1,5 @@
+<% user = User.find(comment.user_id) %>
+<%= div_for comment do %>
+  <p><strong><%= user.full_name %> says:</strong>
+  <%= simple_format comment.content %></p>
+<% end %>

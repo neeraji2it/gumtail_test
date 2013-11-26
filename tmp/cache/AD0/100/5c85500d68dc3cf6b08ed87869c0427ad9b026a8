@@ -1,0 +1,67 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380281.3764217:@value"([I"(function() {
+  var _ref,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Aries.Routers.MainRouter = (function(_super) {
+    __extends(MainRouter, _super);
+
+    function MainRouter() {
+      _ref = MainRouter.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    MainRouter.prototype.routes = {
+      "": "index",
+      "home/stories": "homeStories",
+      "home/subscriptions": "homeSubscriptions",
+      "home/recommendations": "homeRecommendations",
+      "tests/:id": "show"
+    };
+
+    MainRouter.prototype.initialize = function() {
+      return this.contentView = new Aries.Views.Content();
+    };
+
+    MainRouter.prototype.index = function() {
+      this.layoutViews();
+      return this.contentView.swapMain(new Aries.Views.Features({
+        collection: new Aries.Collections.Features
+      }));
+    };
+
+    MainRouter.prototype.homeStories = function() {
+      this.layoutViews();
+      return this.contentView.swapMain(new Aries.Views.Stories({
+        collection: new Aries.Collections.Stories
+      }));
+    };
+
+    MainRouter.prototype.homeSubscriptions = function() {
+      this.layoutViews();
+      return this.contentView.swapMain(new Aries.Views.Subscriptions({
+        collection: new Aries.Collections.Subscriptions
+      }));
+    };
+
+    MainRouter.prototype.homeRecommendations = function() {
+      this.layoutViews();
+      return this.contentView.swapMain(new Aries.Views.Recommendations({
+        collection: new Aries.Collections.Recommendations
+      }));
+    };
+
+    MainRouter.prototype.show = function(id) {
+      return alert("Testing " + id);
+    };
+
+    MainRouter.prototype.layoutViews = function() {
+      return $('#content').html(this.contentView.render().el);
+    };
+
+    return MainRouter;
+
+  })(Backbone.Router);
+
+}).call(this);
+:ET

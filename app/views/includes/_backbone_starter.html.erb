@@ -1,0 +1,16 @@
+<% current_page = controller.controller_name.to_s %>
+   <% if current_page == "home" %>
+     <%= javascript_tag do %>
+        <% if current_user %>
+          var backbone_info = {
+            current_user_id: <%= current_user.id %>,
+            loggedIn: true,
+            current_user_username: "<%= current_user.username %>",
+            current_page: "<%= current_page %>"
+            };
+        <% else %>
+          var backbone_info = { loggedIn: false };
+        <% end %>
+        <!-- Aries.init({ backbone_info: backbone_info }); !-->
+    <% end %>
+  <% end %>

@@ -1,0 +1,49 @@
+<div> 
+  <span><img src="<%= product.cover('thumb') %>" /></span>
+  <span><%= product.product_title %></span>
+  <span><%= product.amount %></span>
+  <%= form_for(@order, remote: true) do |f| %>
+    <%= f.hidden_field :stripe_card_token %>
+    <%= f.hidden_field :product_id, value: product.id %>
+    <%= f.hidden_field :referrer_id, value: session['r_id'] %>
+    <%= f.hidden_field :referred_from, value: session['referer'] %>
+
+    <div class="field">
+      <%= f.label :full_name  %>
+      <%= f.text_field :full_name  %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <%= render 'orders/extra_info', f: f, product: product %>
+    <% if product.product_type == "physical" %>
+      <%= render 'orders/address', f: f %>
+    <% end %>
+
+    <% if @order.stripe_card_token.present? %>
+      <p> Credit card has been provided, just click pay to continue. </p>
+    <% else %>
+      <div class="field">
+        <%= label_tag :card_number, "Credit Card Number" %>
+        <%= text_field_tag :card_number, nil, name: nil %>
+      </div>
+      <div class="field">
+        <%= label_tag :cvv, "Security Code on Card (CVV)" %>
+        <%= text_field_tag :cvv, nil, name: nil %>
+      </div>
+      <div class="field">
+        <%= label_tag :card_month, "Card Expiration" %>
+        <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+      </div>
+    <% end %>
+    <div id="stripe_error">
+      <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+    </div>
+    <div class="actions">
+      <%= f.submit "Pay" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,23 @@
+<div class="row">
+	<% action = controller.action_name.to_s %>
+	<div class="large-3 columns">
+		<ul class="side-nav">
+		  <li><a href="/questions">Unanswered </a></li>
+		  <li><a href="/questions/answered">Answered</a></li>
+		  <li class="divider"></li>
+		  <li><a href="/questions/your_questions">Questions asked by you</a></li>
+		</ul>
+	</div>
+	<div class="large-9 columns">
+		<div class="panel">
+			<% if action == "index"> %>
+				<%= render "index" %>
+			<% else %>
+				<%= render "/questions/#{action}" %>
+			<% end %>
+
+		</div>
+	</div>
+
+</div>
+

@@ -1,0 +1,12 @@
+<div class='current'>
+  <%= f.hidden_field :name, class: "property_name" %>
+  <%= f.text_field :option, placeholder: "Option", style: "margin-top: 5px;" %>
+  <span class="input-prepend">
+  	  <span class="add-on"> +$ </span>
+	  <%= f.text_field :price_change, placeholder: "Additional cost" %>
+	  <span class="add-on"> # </span>
+	  <%= f.text_field :quantity, placeholder: "Quantity" %>
+  </span>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "&#10006".html_safe, '#', class: "remove_variants" %>
+</div>

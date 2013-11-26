@@ -1,0 +1,39 @@
+<div class="row">
+  <%= render :partial => "dashboard/side_tabs" %>
+
+  <div class="large-9 columns">
+    <table>
+      <tr>
+        <td>Facebook</td>
+        <td>
+          <div class="Facebook">
+            <input type="checkbox" value="facebook" id="Facebook" class="<%= @f_connected == 'facebook' ?  '' : 'facebook'%>" name="check" <%= @f_connected == 'facebook' ?  'checked disabled' : ''%> />
+            <label for="Facebook"></label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Twitter</td>
+        <td>
+          <div class="Twitter">
+            <input type="checkbox" value="twitter" id="Twitter" class="<%= @t_connected == 'twitter' ?  '' : 'twitter'%>" name="check" <%= @t_connected == 'twitter' ?  'checked disabled' : ''%>/>
+            <label for="Twitter"></label>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+<script>
+  $("input.facebook").click(function() {
+    $(this).attr("disabled", true);
+    window.location.href = "/auth/facebook"
+  });
+
+  $("input.twitter").click(function() {
+    $(this).attr("disabled", true);
+    window.location.href = "/auth/twitter"
+  });
+</script>

@@ -1,0 +1,24 @@
+<% if type.include? "image" %>
+	<div class="cover_file">
+		<%= image_tag file.file_path_url(:big).to_s, :style => "width: 760px;" %>
+	</div>
+<% elsif type.include? "video" %>
+	<div class="cover_file video">
+		<img src="http://cdn1.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/128/video.png"/>
+		<h4> Your video file has been uploaded. </h4>
+		<span> NAME: <%= file.file_name %>  &nbsp; &nbsp;</span>
+		<span> SIZE: <%= file.file_size/1048576 %> MB</span>
+	</div>
+<% elsif type.include? "audio" %>
+	<div class="cover_file audio">
+		<img src="http://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/volume-24-128.png"/>
+		<h4> Your audio file has been uploaded. </h4>
+		<span> NAME: <%= file.file_name %>  &nbsp; &nbsp;</span>
+		<span> SIZE: <%= file.file_size/1048576 %> MB</span>
+	</div>
+<% else %>
+	<h3> Wrong file format %></h3>
+<% end %>
+<br>
+<%= link_to "&#10006".html_safe, "#", id: "remove-#{file.id}", class: "cover_remove_file", file_id: "#{file.id}" %>
+<input type="hidden" id="file-<%= file.id %>" class="product-files-id" name="file_ids[]" value="<%= file.id %>">

@@ -1,0 +1,35 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380280.9211674:@value"*[I"(function() {
+  var _ref, _ref1,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Aries.Models.Subscriptions = (function(_super) {
+    __extends(Subscriptions, _super);
+
+    function Subscriptions() {
+      _ref = Subscriptions.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
+    return Subscriptions;
+
+  })(Backbone.Model);
+
+  Aries.Collections.Subscriptions = (function(_super) {
+    __extends(Subscriptions, _super);
+
+    function Subscriptions() {
+      _ref1 = Subscriptions.__super__.constructor.apply(this, arguments);
+      return _ref1;
+    }
+
+    Subscriptions.prototype.model = Aries.Models.Subscriptions;
+
+    Subscriptions.prototype.url = "/home/subscriptions";
+
+    return Subscriptions;
+
+  })(Backbone.Collection);
+
+}).call(this);
+:ET

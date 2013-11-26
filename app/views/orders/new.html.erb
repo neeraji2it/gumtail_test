@@ -1,0 +1,11 @@
+<div class="order-modal" id="order-modal" data-position="0">
+	<% if signed_in? %>
+		<% if current_user.card_details_id != 0 %>
+			<%= render 'current_user_pay_with_pin' %>
+		<% else %>
+			<%= render 'current_user_payment_card' %>
+		<% end %>
+	<% else %>
+		<%= render 'payment_card' %>
+	<% end %>
+</div>

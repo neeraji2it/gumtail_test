@@ -1,0 +1,31 @@
+<% if current_user && current_user.user_address_id != 0 %>
+ 	<%= f.hidden_field :street_address, value: current_user.address.street  %>
+    <%= f.hidden_field :city, value: current_user.address.city %>
+    <%= f.hidden_field :state, value: current_user.address.state %>
+    <%= f.hidden_field :post_code, value: current_user.address.code %>
+    <%= f.hidden_field :country, value: current_user.address.country %>
+<% else %>
+	<div class="row">
+		<div class="large-12 columns">
+		    <%= f.text_field :street_address,:placeholder => "Street address"  %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-4 columns">
+		    <%= f.text_field :city, :placeholder => "City"  %>
+		</div>
+
+		<div class="large-4 columns">
+		    <%= f.text_field :state, :placeholder => "State"  %>
+	    </div>
+
+	    <div class="large-4 columns">
+		    <%= f.text_field :post_code, :placeholder => "Zip/Postal code"  %>
+	    </div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns">
+		    <%= country_select("order", "country") %>
+		</div>
+	</div>
+<% end %>

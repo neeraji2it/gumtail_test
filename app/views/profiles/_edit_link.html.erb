@@ -1,0 +1,1 @@
+<%= (current_user and current_user.id == @user.id) ? "#{link_to 'Edit', account_settings_path}".html_safe : "" %>

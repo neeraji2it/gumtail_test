@@ -1,0 +1,13 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380281.0399275:@value"Þ[I"Ð(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["app/templates/stories"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<h3>Stories</h3>\n<ul class=\"homeStories\">\n</ul>\n";
+  });
+  return this.HandlebarsTemplates["app/templates/stories"];
+}).call(this);
+:ET

@@ -1,0 +1,10 @@
+<div id="login_form">
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => {:class => "message"}) do |f| %>
+	  <%= f.email_field :email, :autofocus => true,:placeholder => "Email" %>
+	  <%= f.password_field :password,:placeholder => "password" %>
+	  <%= f.submit "Sign in" %>
+	  <%= link_to_function image_tag("/assets/cancel.png"),'hide_div()',:style => "left: 100px;
+	    position: relative;
+	    top: 9px;" %>
+	<% end %>
+</div>

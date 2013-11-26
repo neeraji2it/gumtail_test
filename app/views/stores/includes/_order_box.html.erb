@@ -1,0 +1,11 @@
+<div id="orderModal" class="reveal-modal tiny compact-modal">
+	<% if signed_in? %>
+		<% if current_user.card_details_id != 0 %>
+			<%= render 'orders/current_user_pay_with_pin', product: @product %>
+		<% else %>
+			<%= render 'orders/current_user_payment_card', product: @product %>
+		<% end %>
+	<% else %>
+		<%= render 'orders/payment_card', product: @product %>
+	<% end %>
+</div>

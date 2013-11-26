@@ -1,0 +1,13 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380280.9936082:@value"â[I"Ô(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["app/templates/features"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<h3>Featured</h3>\n<ul class=\"homeFeatured\">\n</ul>\n";
+  });
+  return this.HandlebarsTemplates["app/templates/features"];
+}).call(this);
+:ET

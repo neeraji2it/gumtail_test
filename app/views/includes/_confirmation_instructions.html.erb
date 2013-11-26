@@ -1,0 +1,4 @@
+<% if current_user and current_user.account_activation_code != nil and request.fullpath != '/' %>
+	<div class="confirm_account">We sent an email with instructions about how to confirm your account,please check your email or <%= link_to 'resend email',resend_confirmations_user_registrations_path(:subdomain => false),:method => 'PUT' %>
+	</div>
+<% end %>

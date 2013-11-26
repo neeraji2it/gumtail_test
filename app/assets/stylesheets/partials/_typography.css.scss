@@ -1,0 +1,186 @@
+//
+// Typography
+// --------------------------------------------------
+
+// Font weights
+$light: 100;
+$regular: 400;
+$bold: 600;
+
+// Font-Family
+
+$sansFontFamily:"proxima-nova", Helvetica, Arial, sans-serif !default;
+$serifFontFamily:Georgia, "Times New Roman", Times, serif !default;
+$monoFontFamily: Monaco, Menlo, Consolas, "Courier New", monospace !default;
+$base-font-family: $sansFontFamily !default;    
+$alt-font-family:  $serifFontFamily !default;
+$headings-font-family: inherit !default; // empty to use BS default, $base-font-family
+
+
+
+// Font-Size
+$base-font-size: 14px !default;
+
+// Headings
+$header-font-weight: $bold;
+$headings-font-weight: $bold !default;    // instead of browser default, $bold
+$headings-color: inherit !default; // empty to use BS default, $base-text-color
+
+// Other
+$base-line-height:      20px !default;
+$fontSizeLarge:         $base-font-size * 1.25; // ~18px
+$fontSizeSmall:         $base-font-size * 0.85; // ~12px
+$fontSizeMini:          $base-font-size * 0.75; // ~11px
+
+$paddingLarge:          11px 19px !default; // 44px
+$paddingSmall:          2px 10px !default;  // 26px
+$paddingMini:           0px 6px !default;   // 22px
+
+$baseBorderRadius:      4px !default;
+$borderRadiusLarge:     6px !default;
+$borderRadiusSmall:     3px !default;
+$hrBorderRadius:        4px !default;
+
+
+
+// Body text
+// -------------------------
+
+p {
+  margin: 0 0 $base-line-height / 2;
+}
+
+.lead {
+  margin-bottom: $base-line-height;
+  font-size: $base-font-size * 1.5;
+  font-weight: 200;
+  line-height: $base-line-height * 1.5;
+}
+
+// Ex: 14px base font * 85% = about 12px
+small   { font-size: 85%; }
+strong  { font-weight: bold; }
+em      { font-style: italic; }
+cite    { font-style: normal; }
+
+
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  margin: ($base-line-height / 2) 0;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $base-line-height;
+  color: $headings-color;
+  text-rendering: optimizelegibility; // Fix the character spacing for headings
+  small {
+    font-weight: normal;
+    line-height: 1;
+    color: $grayLight;
+  }
+}
+
+h1,
+h2,
+h3 { line-height: $base-line-height * 2; }
+
+h1 { font-size: $base-font-size * 2.75; } // ~38px
+h2 { font-size: $base-font-size * 2.25; } // ~32px
+h3 { font-size: $base-font-size * 1.75; } // ~24px
+h4 { font-size: $base-font-size * 1.25; } // ~18px
+h5 { font-size: $base-font-size; }
+h6 { font-size: $base-font-size * 0.85; } // ~12px
+
+h1 small { font-size: $base-font-size * 1.75; } // ~24px
+h2 small { font-size: $base-font-size * 1.25; } // ~18px
+h3 small { font-size: $base-font-size; }
+h4 small { font-size: $base-font-size; }
+
+// Lists
+// --------------------------------------------------
+
+// Unordered and Ordered lists
+ul, ol {
+  padding: 0;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+li {
+  line-height: $base-line-height;
+}
+
+// Remove default list styles
+ul.unstyled,
+ol.unstyled {
+  margin-left: 0;
+  list-style: none;
+}
+
+// Single-line list items
+ul.inline,
+ol.inline {
+  margin-left: 0;
+  list-style: none;
+  > li {
+    display: inline-block;
+    //@include ie7-inline-block();
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+// Description Lists
+dl {
+  margin-bottom: $base-line-height;
+}
+dt,
+dd {
+  line-height: $base-line-height;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: $base-line-height / 2;
+}
+// Horizontal layout (like forms)
+$horizontalComponentOffset:       180px !default;
+.dl-horizontal {
+  @include clearfix(); // Ensure dl clears floats if empty dd elements present
+  dt {
+    float: left;
+    width: $horizontalComponentOffset - 20;
+    clear: left;
+    text-align: right;
+    @include text-overflow();
+  }
+  dd {
+    margin-left: $horizontalComponentOffset;
+  }
+}
+
+// MISC
+// ----
+
+// Horizontal rules
+hr {
+  margin: $base-line-height 0;
+  border: 0;
+  border-top: 1px solid $hrBorder;
+  border-bottom: 1px solid $white;
+}
+
+
+// Addresses
+address {
+  display: block;
+  margin-bottom: $base-line-height;
+  font-style: normal;
+  line-height: $base-line-height;
+}

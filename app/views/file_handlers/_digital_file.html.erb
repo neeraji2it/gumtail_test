@@ -1,0 +1,7 @@
+<div class="digital_file">
+	<img src="http://cdn1.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/128/video.png"/>
+	<h4> Your file has been uploaded. </h4>
+	<span> NAME: <%= file.file_name %>  &nbsp; &nbsp;</span>
+	<span> SIZE: <%= file.file_size/1048576 %> MB</span>
+</div>
+<input type="hidden" id="file-<%= file.id %>" class="product-files-id" name="file_ids[]" value="<%= file.id %>">

@@ -1,0 +1,5 @@
+<%= form_for(current_user.relationships.build(publisher_id: @user.id),
+             remote: true) do |f| %>
+  <div><%= f.hidden_field :publisher_id %></div>
+  <%= f.submit "Subscribe", class: "btn btn-large btn-primary" %>
+<% end %>

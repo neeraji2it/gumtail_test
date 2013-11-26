@@ -1,0 +1,3 @@
+<%= form_for FileHandler.new  do |file| %>
+	<%= render partial: "file_handlers/new", locals: { product_flag: product_flag, action: "new" } %>
+<% end %>

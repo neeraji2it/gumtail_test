@@ -1,0 +1,42 @@
+<div id="connect">
+  Login With <%= link_to "Facebook","/auth/facebook",:class => "facebook" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Twitter","/auth/twitter",:class => "twitter" %>
+</div><br /><br />
+
+<------- OR -----><br /><br />
+
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => {:class => "message"}) do |f| %>
+  <% flash.each do |name, msg| %>
+    <% if msg.class == Array %>
+      <% msg.each do |message| %>
+        <%= content_tag :div, message,:style => 'margin-left: 97px;color:red;' %>
+      <% end %>
+    <% else %>
+      <%= content_tag :div, msg,:style => 'margin-left: 97px;color:red;' %>
+    <% end %>
+  <% end %>
+  <table>
+    <tr>
+      <td><%= f.label :email %></td>
+      <td><%= f.email_field :email, :autofocus => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :password %></td>
+      <td><%= f.password_field :password %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <% if devise_mapping.rememberable? -%>
+          <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+        <% end -%>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit "Sign in" %></td>
+    </tr>
+  </table>
+<% end %>
+<br />
+<%= render "devise/shared/links" %>

@@ -1,0 +1,9 @@
+<div class="wrapper clearfix">
+  <%= render :partial => "dashboard/side_tabs" %>
+
+  <div class="grid_9">
+    <%= form_for @store,:url =>stores_path(@store),:html => {:class => "message"} do |f| %>
+      <%= render :partial => "form",:locals => {:f => f} %>
+    <% end %>
+  </div>
+</div>

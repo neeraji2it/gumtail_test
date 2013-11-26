@@ -1,0 +1,11 @@
+<div class="wrapper clearfix">
+  <%= render :partial => "dashboard/side_tabs" %>
+
+  <div class="grid_9">
+    <ul class="notifications">
+      <% for notification in @notifications %>
+        <li><%= notification[2] %></li>    
+      <% end %>
+    </ul>
+  </div>
+</div>

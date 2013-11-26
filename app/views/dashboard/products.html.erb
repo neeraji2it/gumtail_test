@@ -1,0 +1,31 @@
+<div class="row">
+  <%= render :partial => "side_tabs" %>
+   <div class="large-9 small-12 columns">
+    <% if @products.present? %>
+      <a href="/products/add">
+        <div style="width:200px; height: 200px; border: 1px solid gray; margin:10px; margin-bottom: 30px;"> 
+          <p style="text-align: center; color: #E46F61; font-size: 140px;"> &#43;</p>
+        </div>
+      </a>
+      <br>
+      <h3> Sold Out Products</h3>
+      <hr>
+      <div class="clearfix">
+        <% for sold_out_product in @sold_out_products %>
+          <%= render partial: "dash_product", locals: { product: sold_out_product } %>
+          <br><br>
+           <p> Requests (<%= link_to sold_out_product.request_count, requests_path(random_no: sold_out_product.random_no) %>)</p>
+        <% end %>
+      </div>
+
+      <h3> Available Products </h3>
+      <hr>
+      <% for product in @products %>
+          <%= render partial: "dash_product", locals: {product: product} %>
+      <% end %>
+    <% else %>
+    <h3 style="margin: 150px; text-align: center;"> You haven't added any products. <%= link_to "Click here", add_product_path %> to add your first product.</h3>
+    <% end %>
+  </div>
+</div>
+

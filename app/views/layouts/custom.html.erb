@@ -1,0 +1,56 @@
+<%= stylesheet_link_tag "custom", :media => "all"  %>
+<%= javascript_include_tag "https://js.stripe.com/v1/" %>
+<%= tag :meta, :name => "stripe-key", :content => Rails.configuration.stripe[:publishable_key] %>
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "vendor/custom.modernizr" %>
+<%= csrf_meta_tags %>
+<% current_store_array = Array(@current_store).first %>
+<%= raw(Liquid::Template.parse(@theme).render({
+	'store_name' => @current_store.store_name.capitalize,
+	#-------------------CURRENT PAGE---------------------------#
+	'current_page' => controller.controller_name.to_s,
+	#----------------------LINKS-------------------------------#
+	'store_path' => root_url(subdomain: @current_store.store_name),
+	'add_product_path' => root_url(host: request.domain,subdomain: 'www') + "products/add",
+	'customise_path' => root_url(host: request.domain,subdomain: 'www') + "customise/#{@current_store.user.username}",
+	'home_path' => root_url(host: request.domain,subdomain: 'www'),
+
+	'traffic_count' => @current_store.unique_traffic_count,
+	#--------------------Custom Attributes---------------------#
+	'title' => current_store_array.custom_appearance['title'],
+	'description' => current_store_array.custom_appearance['description'],
+	'linkColor'=> current_store_array.custom_appearance['link_color'],
+	'backgoundColor' => current_store_array.custom_appearance['bg_color'],
+	'titleColor' => current_store_array.custom_appearance['title_color'],
+	'google_analytics_id' => current_store_array.custom_appearance['google_analytics'],
+
+	#---------------------PRODUCTS-----------------------------#
+	'products' => @products,
+	'product' => @product,
+	#-------------------BOUGHT---------------------------------#
+	'bought' => @bought,
+	#------------------------TAGS------------------------------#
+	'tags'=>(@product) ? @product.tags.map(&:name).map { |t| link_to '#' + t, root_url(host: request.domain,subdomain: 'www') + tag_path(t) }.join(' ') : '',
+	#----------------------QUANTITY----------------------------#
+	'request' => (@product) ? product_request(@product) : '',
+	#----------------------PRICING-----------------------------#
+	'price' => (@product) ? product_price(@product): "",
+	#-------------------PRODUCT ACTION LINKS-------------------#
+	'buy_link' => (@product and !product_user?(@product) and !@product.sold_out) ? "<a href='#' class='productBuy' data-reveal-id='orderModal'>Buy it now </a>".html_safe : ""
+	#'recommend_link' => (@product and !product_user?(@product) and !@product.sold_out) ? "<a href='#' class='productRecommend' data-reveal-id='recommendModal'>Recommend</a>".html_safe : "",
+	#'comission' => (@product and !product_user?(@product) and @product.pricing != "free" and !@product.sold_out) ? @product.product_commision : ""
+	}, 
+	:filters => [LiquidFilters])
+	)
+%>
+<%= javascript_tag do %>
+  $(function() {
+      Store.initialize();
+  });
+<% end %>
+<%= current_user.inspect %>
+<% if @product %>
+	<%= render 'stores/includes/request_box' %>
+	<%#render 'stores/includes/recommend_box' %>
+	<%= render 'stores/includes/order_box' %>
+<% end %>

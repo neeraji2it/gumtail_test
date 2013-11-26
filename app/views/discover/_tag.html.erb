@@ -1,0 +1,38 @@
+<%= link_to tag_path(tag.name), class: "tag_box", style: "background-image: url(/assets/tags/tags-#{rand(0..11)}.jpg);" do %>
+  <span class="tag_name">#<%= tag.name %> </span>
+<% end %>
+<style>
+.tag_box {
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.9)!important;
+	color: #FFF;
+	-webkit-text-shadow: 0 -1px 0 rgba(0,0,0,0.26);
+	-moz-text-shadow: 0 -1px 0 rgba(0,0,0,0.26);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.26);
+	display: inline-block;
+	width: 150px;
+	height: 142px;
+	overflow: hidden;
+	white-space: pre-wrap;
+	vertical-align: top;
+	padding: 8px 0 0 0;
+	position: relative;
+}
+.tag_name {
+	color: #FFF;
+	font: bold 11px Arial,Helvetica,sans-serif;
+	background: rgba(0, 0, 0, 0.7)!important;
+	background: #000;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	padding: 1px 5px;
+	-webkit-border-radius: 11px;
+	-moz-border-radius: 11px;
+	border-radius: 11px;
+	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.45);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+	position: absolute;
+	left: 8px;
+	bottom: 8px;
+}
+</style>

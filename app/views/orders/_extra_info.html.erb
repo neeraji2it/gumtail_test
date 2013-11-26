@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="large-12 columns">
+      <% if product.pricing == "pay_anything_from" %>
+        <%= f.text_field :amount %>
+      <% end %>
+    </div>
+    <div class="large-12 columns">
+        <%= f.text_field :quantity %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <% product.fields.each do |field| %>
+        <%= f.text_field 'name',:placeholder => field.name  %>
+      <% end %>
+    </div>
+    <div class="large-12 columns">
+      <%= f.select 'shipping_option_id', options_from_collection_for_select(product.sprofiles.all,"id", :shipping_info), {}, {:class => "medium", :id => "customDropdown"}%>
+    </div>
+    <div class="large-12 columns">
+      <% if product.offers %>
+        <%= f.text_field "offer", :placeholder => "Offer code" %>
+      <% end %>
+    </div>
+    
+</div>

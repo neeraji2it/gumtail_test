@@ -1,0 +1,129 @@
+#home-bg {
+	background: $header-background; 
+	height: 500px;
+	width: 100%;
+	@include position(absolute,0, 0);
+}
+.mid-content {
+	@include margin("all", 60px, 0, 100px, 0px);
+	h1{
+		color: $white;
+	}
+}
+
+.trending-products {
+	> :last-child{
+		margin-right: 0 !important;
+	}
+	.product{
+		@include margin("all", 0px, 25px, 0, 0);
+		float:left; //Add .left to class when you make product dynamic
+	}
+
+	.product_bg {
+		width: 160px;
+		height: 160px;
+		@include padding("all", 5px, 5px, 5px, 5px);
+		@include border-radius(5px);  //Compass
+		background-clip: padding-box;
+		background: $white;
+		.inner{
+			cursor: pointer;
+		}
+		img{
+			width: 160px;
+			height: 160px;
+		}
+	}
+
+	.product_text {
+		text-align: center; //Add .text-center to class when you make product dynamic
+		@include margin("top", 3px);
+		color: $gray;
+		line-height: 19px;
+		.product_title {
+			cusor: pointer;
+			font-size: 13px;
+		}
+		.publisher {
+			color: $linkColor;
+			font-size: 14px;
+			font-style: normal;
+			font-weight: $bold;
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.what-is-casppa{
+	.grid_6 {
+		@include margin("top", 150px);
+		color: $blendGrayDark;
+		font-weight: $regular;
+		line-height: $base-line-height;	
+	}
+
+	h2 {
+			color: $grayDark;
+			font-size: 40px;
+			font-style: normal;
+			font-weight: 300;
+			@include margin("bottom", 0, 0, 40px);
+	}
+	
+	.phone {
+			background: url(http://dropify.com/images/website/start/phone_screenshot.jpg);
+			background-repeat: no-repeat;
+			//background-size: 437px 608px;
+			width: 437px;
+			height: 608px;
+			@include margin("left", 0, 0, 0, 13px);
+	}
+	.btn {
+		@include margin("top", 20px);
+	}
+}
+
+.merchants {
+	@include margin("top", -10px);
+	h4{
+		@include padding("all", 20px, 0, 10px, 0);
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+		border-width: 100%;
+		color: #989694;
+		font-weight: $bold;
+	}
+	ul {
+		overflow: hidden;
+		@include padding("all", 5px, 0, 5px, 0);
+		height: 120px;
+	}
+	ul li {
+		display: inline-block;
+		width: 68px;
+		vertical-align: top;
+		margin: 0 10px 30px;
+		@include position(relative,0, 0);
+
+		img {
+			background-image: none;
+			@include border-radius(3px); //From Compass
+			@include box-shadow(0 1px 1px 0px rgba(0, 0, 0, 0.3)); //From Compass
+			width: 68px;
+			height: 68px;
+		}
+		a {
+			text-decoration: none;
+			font-weight: $bold;
+		}
+	}
+	
+}
+
+.thumbnails{margin-left:-20px;list-style:none;*zoom:1;}.thumbnails:before,.thumbnails:after{display:table;content:"";line-height:0;}
+.thumbnails:after{clear:both;}
+.thumbnails{margin-left:0;}
+.thumbnails>li{float:left;margin-bottom:20px;margin-left:20px;}
+.thumbnail{display:block;padding:4px;line-height:20px;border:1px solid #ddd;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.055);-moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.055);box-shadow:0 1px 3px rgba(0, 0, 0, 0.055);-webkit-transition:all 0.2s ease-in-out;-moz-transition:all 0.2s ease-in-out;-o-transition:all 0.2s ease-in-out;transition:all 0.2s ease-in-out;}

@@ -1,0 +1,13 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1385380281.084636:@value"Ö[I"È(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["app/templates/tags"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<h3>Trending</h3>\n<ul class=\"side-nav\">\n</ul>\n";
+  });
+  return this.HandlebarsTemplates["app/templates/tags"];
+}).call(this);
+:ET

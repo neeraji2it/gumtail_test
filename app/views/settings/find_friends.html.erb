@@ -1,0 +1,74 @@
+<div class="wrapper clearfix" style="width:1030px;">
+  <%= render :partial => "dashboard/side_tabs" %>
+  <div>
+    <div class="grid_9" style="float:left;width:320px;">
+      <%= render :partial => "friends" %>
+      <table>
+        <% @twi_friends.each do |tw_friend| %>
+          <tr>
+            <td><%= image_tag(tw_friend.profile_image_url) %><%= tw_friend.name %>&nbsp;&nbsp;<%= (User.exists?(:provider_id => tw_friend.id,:provider => 'twitter') or SocialConnection.exists?(:provider_id => tw_friend.id,:provider => 'twitter')) ? '(subscribed)' : (link_to_function 'Invite',"openOffersDialog('#{tw_friend.username}','#{tw_friend.id}')") %></td>
+          </tr>
+        <% end %>
+      </table>
+
+      <div id="overlay" class="overlay" style="display: none;"></div>
+      <div id="boxpopup" class="box" style="display: none;">
+        <a onclick="closeOffersDialog('boxpopup');" class="boxclose"></a>
+        <div id="content">
+          <%= form_tag send_twitter_message_settings_path do %>
+            <%= hidden_field_tag "twitter_id" %>
+            <%= text_field_tag "username",'',:readonly => true %>
+            <%= text_area_tag "text",'',:rows => '4',:cols => '30' %>
+            <%= submit_tag 'Send' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- Share with your friends -->
+    <div class="span8" style="width:390px;position:relative;top:22px;float:left;">
+      <% unless @fb_friends.empty? %>
+        <section class="facebook-box">
+          <div class="frame">
+            <div class="search-box">
+              <input type="text" id="fr_search" value="" placeholder="search facebook friends" />
+            </div>
+            <div>
+              <table width="35%;" cellspacing="0" cellpadding="5%;" id="friends-table" style="display:none;">
+                <% for friend in @fb_friends %>
+                  <tr>
+                    <td><%= image_tag(friend.picture,:width => '50',:height => '50') %></td>
+                    <td><%= friend.name %>&nbsp;&nbsp;<%= (User.exists?(:provider_id => friend.identifier,:provider => 'facebook') or SocialConnection.exists?(:provider_id => friend.identifier,:provider => 'facebook')) ? '(subscribed)' : (link_to_function 'Invite',"invite_fb_friends('#{friend.identifier}')") %></td>
+                  </tr>
+                <% end %>
+              </table>
+            </div>
+          </div>
+        </section>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<script>
+
+        FB.init({
+          appId: <%= FB_APP_ID %>,
+          frictionlessRequests: true
+        });
+
+        function invite_fb_friends(uid) {
+          sendRequestToRecipients(uid)
+        }
+
+
+        function sendRequestToRecipients(uid) {
+          FB.ui({method: 'send',
+            link: 'http://casppa.herokuapp.com/',
+            to: [uid]
+          }, function(response) {
+            window.location.href = "/find_friends?fb_id=" + uid;
+          });
+        }
+</script>

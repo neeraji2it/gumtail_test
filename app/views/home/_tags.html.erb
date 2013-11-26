@@ -1,0 +1,6 @@
+<ul class="side-nav">
+	<% @tags.each do |tag| %>
+		<li><%= link_to tag.name, "#" %></li>
+	<% end %>
+</ul>
+<%= @trends.inspect if @trends %>

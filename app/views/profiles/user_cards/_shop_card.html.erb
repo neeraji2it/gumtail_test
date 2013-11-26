@@ -1,0 +1,17 @@
+<div class="about-divs shop">
+  <! refaactor  after store and product presenter is doe !-->
+  <h5>Shop </h5>
+  <div id="store_products" class="clearfix" style="margin-bottom: 20px;">
+    <% if @products.blank? %>
+      <p><%= @user.full_name %> isn't selling anything yet. </p>
+    <% else %>
+      <p>Products sold by <%= @user.full_name %></p>
+      <% @products.each do |product| %>
+        <%= link_to product_url(:subdomain =>@user.store.store_name,:number => product.random_no), style: "text-decoration:none;" do %>
+          <%= image_tag(product.cover("thumb"), style: "width: 50px; height: 50px; float: left;margin-left:5px;") %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to_user_shop(@user) %>
+</div>

@@ -1,0 +1,15 @@
+<div class="row"> 
+    <ul class="large-block-grid-3">
+      <li> <div class="panel"> <h4>50 </h4> <p> Total referals </p> </div></li>
+      <li> <div class="panel"><h4>$1,500 </h4><p>Total commision earned</p> </div></li>
+      <li> <div class="panel"> <h4> 200 </h4> <p>Recommending</p> </div></li>
+    </ul>
+</div>
+
+<div class="row">
+  <% if @referrals.any? %>
+    <h2 style="margin: 150px; text-align: center;"> Yes you have referrals.</h2>
+  <% else %>
+    <h2 style="margin: 150px; text-align: center;"> You have not made any sales from your recommendations.</h2>
+  <% end %>
+</div>

@@ -1,0 +1,5 @@
+<% if @question.new_record? %>
+	alert("<%= j @question.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+	alert('Question was sucessfuly created!');
+<% end %>

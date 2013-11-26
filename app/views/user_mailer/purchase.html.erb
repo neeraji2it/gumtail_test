@@ -1,0 +1,4 @@
+<p> Dear <%= @user.full_name %></p>
+
+<%= render partial: "#{@product.product_type}", locals: { user: @user, order: @order, product: @product, shipping: @shipping } %>
+

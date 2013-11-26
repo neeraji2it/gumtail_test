@@ -1,0 +1,42 @@
+<div class="row">
+  <ul class="large-block-grid-5">
+      <li> <div class="panel">  <h4> <%=  price(current_user.balance) %> </h4>  <p>Available Balance</p> </div></li>
+      <li> <div class="panel"> <h4> <%=  price(current_user.uncleared_balance) %> </h4> <p> Uncleared funds </p> </div></li>
+      <li> <div class="panel"> <h4> <%= price(current_user.try(:store).try(:total_sales)) || '$0.00'%>  </h4> <p> Total Sales earned </p>   </div></li>
+      <li> <div class="panel"> <h4> $0.00 </h4> <p> Total Withdrawal </p> </div></li>
+      <li> <div class="panel"> <h4> <%= current_user.try(:store).try(:total_orders) || '$0.00'%> </h4> <p> Total Orders </p> </div></li>
+  </ul>
+
+</div>
+
+<div class="row">
+  <% if @orders.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th width="200">Order no</th>
+          <th width="200"> <%= sortable "created_at", "Date" %> </th>
+          <th width="200">Placed by</th>
+          <th width="200">Payment status</th>
+          <th width="200">Total</th>
+          <th width="200">Order State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= link_to order.order_no, order_path(order), style: "text-decoration:underline;" %></td>
+            <td><%=  order.created_at.strftime("%b %d %H:%M") %></td>
+            <td><%= order.full_name%></td>
+            <td><%= order.payment_status %></td>
+            <td><%= price(order.amount) %></td>
+            <td><%= order.current_state.capitalize %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%#page_navigation_links(@orders) %> <!-- pagination working, ajaxify later !-->
+  <% else %>
+    <h2 style="margin: 150px; text-align: center;"> You currently have no sales.</h2>
+  <% end %>
+</div>

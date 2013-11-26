@@ -1,0 +1,18 @@
+ <div class="product" style="display: inline-block; margin: 10px; margin-bottom: 40px; width:200px; height: 200px;">
+  <a href="<%= product_url(:subdomain =>product.store.store_name,:number => product.random_no) %>" style="text-decoration:none;">
+    <div>
+     <img style="height: 200px; width: 200px;" src="<%= product.cover("thumb_big") %>"/> 
+      <p><%= truncate(product.product_title, length: 28) %></p>
+        <p><%= link_to "Edit", edit_product_path(:number => product.random_no) %></p>
+        <p><%= link_to 'Delete',"#" %></p><!-- Temp, wroking on it!-->
+    </div>
+  </a>
+</div>
+<!--
+<div id="boxpopup" class="box" style="display: none;">
+  <a onclick="closeOffersDialog('boxpopup');" class="boxclose"></a>
+  <div id="content" class="delete_product">
+    <%#render :partial => "products/enter_password", :locals => { product: product} %>
+  </div>
+</div>
+!-->

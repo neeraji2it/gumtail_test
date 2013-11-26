@@ -1,0 +1,48 @@
+@import "compass";
+@import "modules/all";
+
+//
+// Partials
+// --------------------------------------------------
+@import "partials/grid"; //Improve grid system to be responsive.
+@import "partials/typography";
+@import "partials/buttons";
+@import "partials/links";
+@import "partials/forms";
+
+
+//
+// Clearfix
+// --------------------------------------------------
+.clearfix {
+	@include clearfix();
+}
+
+//
+// Global
+// --------------------------------------------------
+@import "sections/global";
+
+
+//
+// Header
+// --------------------------------------------------
+@import "sections/header";
+
+//
+// Other-sections
+// --------------------------------------------------
+@import "sections/home";
+@import "sections/productForm";
+
+//
+// Footer
+// --------------------------------------------------
+@import "sections/footer";
+
+//
+// Jquery-UI
+// --------------------------------------------------
+@import "jquery.ui.core";
+@import "jquery.ui.theme";
+@import "jquery.ui.dialog";

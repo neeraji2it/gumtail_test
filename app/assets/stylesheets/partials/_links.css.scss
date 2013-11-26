@@ -1,0 +1,7 @@
+
+@mixin standout($color) {
+	background-color: $color;
+	@include border-radius($baseBorderRadius);
+	padding: 7px 2px !important;
+
+}

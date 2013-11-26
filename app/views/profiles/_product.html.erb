@@ -1,0 +1,22 @@
+<div id="store_products">
+  <!-- refactor after product presenter !-->
+  <% if @products.empty? %>
+  	<p> <%= (params[:action] == "drawer") ? "#{@user.full_name} hasn't bought anything yet." : "#{@user.full_name} hasn't recommended anything yet."%>
+    </p>
+  	  
+  <% else %>
+    <% @products.each do |product| %>
+      <a href="<%= product_url(:subdomain => product.product.store.store_name,:number => product.product.random_no) %>" style="text-decoration:none;">
+        <div id="products" style="float: left;margin-left:20px;margin-top: 27px;">
+             <img style="height: 200px; width: 200px;" src="<%= product.product.cover("thumb_big") %>"/> 
+          <div>
+            <p><%= truncate(product.product.product_title, length: 28) %></p>
+            <% if params[:action] == 'drawer' and product.product.product_type == 'digital' %>
+            <% link_to "Download", download_path(:random_no => product.product.random_no) %>
+            <% end %>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  <% end %>
+</div>

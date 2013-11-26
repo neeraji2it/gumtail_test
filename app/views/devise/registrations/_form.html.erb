@@ -1,0 +1,13 @@
+<div id="registration">
+  <%= form_for(@user, :url => user_registrations_path(@user),:html => {:class => "message"}) do |f| %>
+	  <%= f.text_field :username, :autofocus => true,:placeholder => "User Name" %>
+	  <%= f.text_field :first_name,:placeholder => "First Name",:style => "width:122px" %>
+	  <%= f.text_field :last_name,:placeholder => "Last Name",:style => "width:122px" %>
+	  <%= f.email_field :email,:placeholder => "Email" %>
+	  <%= f.password_field :password,:placeholder => "Password" %>
+	  <%= f.submit "Sign up" %>
+	  <%= link_to_function image_tag("/assets/cancel.png"),'hide_div()',:style => "left: 100px;
+	    position: relative;
+	    top: -25px;" %>
+	<% end %>
+</div>

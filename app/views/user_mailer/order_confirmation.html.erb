@@ -1,0 +1,4 @@
+<p> Basically send buyer's receipt here </p>
+<% if @product.product_type == 'digital' %>
+	<p><%= link_to 'Click here',root_url+download_path(:random_no => @product.random_no) %> to download your product</p>
+<% end %>

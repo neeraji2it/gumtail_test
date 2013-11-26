@@ -1,0 +1,15 @@
+<div>
+  <% if @users.any? %>
+    <div class="user_avatars">
+      <% @users.each do |user| %>
+        <div>
+          <img style="height: 100px; width: 100px;" src="<%= user.avatar("thumb") %>"/>
+          <h4> <%= link_to "#{user.full_name}", profile_path(user.username) %> </h4>
+          <span><b>Selling:</b> <%= user.store.nil? ? '0' : user.store.products.count %> products</span>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</section>
+</div>
+<br>

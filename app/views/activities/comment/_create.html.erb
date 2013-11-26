@@ -1,0 +1,9 @@
+<% if current_user %>
+	<% if comment.order.publisher_id == current_user.id %>
+		<%= render "activities/comment/seller", order: comment.order %>
+	<% elsif comment.order.user_id == current_user.id %>
+		<%= render "activities/comment/buyer", order: comment.order %>
+	<% end %>
+<% else %>
+	<%= render "activities/comment/seller", order: comment.order %>
+<% end %>

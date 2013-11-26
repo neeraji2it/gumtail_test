@@ -1,0 +1,5 @@
+<% if @by == "seller" %>
+ <p> You have a new comment on your <%= link_to "Order", order_url(@order) %></p>
+<% else %>
+<p> A customer has commented on their <%= link_to "Order", order_url(@order) %></p>
+<% end %>

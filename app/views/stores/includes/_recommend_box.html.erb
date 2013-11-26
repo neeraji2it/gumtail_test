@@ -1,0 +1,15 @@
+<div id="recommendModal" class="reveal-modal tiny compact-modal">
+	<% if current_user %>
+		  <h4>Recommend this Product.</h4>
+		  <img src="<%= @product.cover("thumb") %>"/> 
+		  <p style="color:red"> You <%= @product.product_commision %></p>
+		  <p><span class="fig-info"><%= @product.product_title %> </span></p>
+		  <%= link_to 'Recommend',recommend_product_path(@product), :class => "button", :method => :put,:remote => true %>
+		  <a class="close-reveal-modal">&#215;</a>
+	<% else %>
+		<h2> Join Gumtail today</h2>
+		<p> Tag line bla bla.</p>
+		<a href="/signup" class="button">Sign up</a>
+		<p>Have an account?</p><a href="/signin"> Sign in</a>
+	<% end %>
+</div>

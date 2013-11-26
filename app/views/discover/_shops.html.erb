@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="large-12 columns">
+	<h3>Shops</h3>
+	<% @shops.each do |shop| %>
+	  	<hr>
+	  	<h4> <%= shop.store_name %> <small>  <%= link_to "Visit #{shop.store_name}", root_url(:subdomain => shop.store_name), class: "right" %> </small></h4> 
+	      <% shop.products.each do |product| %>    
+	        <div class="product" style="height: 100px; width: 100px; display: inline-block; margin: 1px; vertical-align: top;">
+	           <img style="height: 100px; width: 100px;" src="<%= product.cover("thumb") %>"/> 
+	        </div>
+	      <% end %>
+	<% end %>
+  </div>
+</div>
